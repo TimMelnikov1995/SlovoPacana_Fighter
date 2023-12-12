@@ -2,11 +2,36 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] float _rotationSpeed;
+    [SerializeField] Camera m_mainCamera;
+    [SerializeField] float m_rotationSpeed;
 
-    void Update()
+
+
+    private void OnEnable()
+    {
+        SingleUpdate.Instance.UpdateDelegate += OnUpdate;
+    }
+
+    private void OnDisable()
+    {
+        if (SingleUpdate.Instance != null)
+            SingleUpdate.Instance.UpdateDelegate -= OnUpdate;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(gameObject.transform.position, 0.5f);
+
+        Gizmos.color = Color.white;
+        Gizmos.DrawLine(gameObject.transform.position, m_mainCamera.transform.position);
+    }
+
+
+
+    void OnUpdate()
     {
         if (Input.GetMouseButton(1))
-            gameObject.transform.Rotate(Vector3.up, Input.GetAxis("Mouse X") * _rotationSpeed);
+            gameObject.transform.Rotate(Vector3.up, Input.GetAxis("Mouse X") * m_rotationSpeed);
     }
 }
