@@ -11,10 +11,6 @@ public enum Keys
 
 public class PlayerInput : MonoBehaviour
 {
-    [SerializeField] KeyCode m_left = KeyCode.A;
-    [SerializeField] KeyCode m_up = KeyCode.W;
-    [SerializeField] KeyCode m_down = KeyCode.S;
-
     [Header("Combo")]
     [SerializeField] KeyCombo[] m_keyCombos;
     [SerializeField] float m_comboTime = 0.1f;
@@ -30,44 +26,20 @@ public class PlayerInput : MonoBehaviour
     private void OnDisable()
     {
         if (SingleUpdate.Instance != null)
-        {
             SingleUpdate.Instance.UpdateDelegate -= OnUpdate;
-        }
     }
 
     void OnUpdate()
     {
-        if (Input.GetKeyDown(m_left))
-        {
-            CheckKeyCombo(Keys.Left);
 
-            lastInputTime = Time.time;
-            lastKey = Keys.Left;
-        }
-
-        if (Input.GetKeyDown(m_up))
-        {
-            CheckKeyCombo(Keys.Up);
-
-            lastInputTime = Time.time;
-            lastKey = Keys.Up;
-        }
-
-        if (Input.GetKeyDown(m_down))
-        {
-            CheckKeyCombo(Keys.Down);
-
-            lastInputTime = Time.time;
-            lastKey = Keys.Down;
-        }
     }
 
-    public void InputRight()
+    public void InputKey(Keys key)
     {
-        CheckKeyCombo(Keys.Right);
+        CheckKeyCombo(key);
 
         lastInputTime = Time.time;
-        lastKey = Keys.Right;
+        lastKey = key;
     }
 
     void CheckKeyCombo(Keys _currentKey)
@@ -76,7 +48,7 @@ public class PlayerInput : MonoBehaviour
         {
             foreach (KeyCombo combo in m_keyCombos)
             {
-                if(combo.IsCombo(_currentKey, lastKey))
+                if(combo.IsCombo(lastKey, _currentKey))
                 {
                     print(combo.ComboName);
                 }
