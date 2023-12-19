@@ -4,27 +4,28 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] Camera m_mainCamera;
     [SerializeField] float m_rotationSpeed;
+    [SerializeField] Mesh m_cameraMesh;
 
 
 
-    private void OnEnable()
+    void OnEnable()
     {
         SingleUpdate.Instance.UpdateDelegate += OnUpdate;
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
         if (SingleUpdate.Instance != null)
             SingleUpdate.Instance.UpdateDelegate -= OnUpdate;
     }
 
-    private void OnDrawGizmosSelected()
+    void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(gameObject.transform.position, 0.5f);
-
         Gizmos.color = Color.white;
+
+        Gizmos.DrawSphere(gameObject.transform.position, 0.4f);
         Gizmos.DrawLine(gameObject.transform.position, m_mainCamera.transform.position);
+        Gizmos.DrawMesh(m_cameraMesh, m_mainCamera.transform.position, m_mainCamera.transform.rotation, new Vector3(0.4f, 0.4f, 0.4f));
     }
 
 

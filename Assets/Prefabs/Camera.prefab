@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3446834529684062372}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.42261827, y: -0, z: -0, w: 0.9063079}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -2.5, z: -8}
   m_LocalScale: {x: 20, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8159947460244356709}
-  m_LocalEulerAnglesHint: {x: -50, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!65 &3971695679502635375
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -81,7 +81,7 @@ Transform:
   m_GameObject: {fileID: 5217029655532467407}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -40}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -119,8 +119,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 30.000002
+  far clip plane: 100
+  field of view: 30
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -214,7 +214,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5732165466489744150}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
+  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -222,7 +222,7 @@ Transform:
   - {fileID: 2578236988838632818}
   - {fileID: 4305950638127722124}
   m_Father: {fileID: 6660442669517488471}
-  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
 --- !u!1 &8714146098558715042
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,5 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f0b9a15a9629749b7c6ce85d862a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_rotationSpeed: 0
   m_mainCamera: {fileID: 6204184604621836303}
+  m_rotationSpeed: 0
+  m_cameraMesh: {fileID: -1710425572717105975, guid: 4ed885c14b42a3c4c85b94bc037c6f40,
+    type: 3}

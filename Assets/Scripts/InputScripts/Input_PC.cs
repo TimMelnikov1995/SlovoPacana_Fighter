@@ -22,18 +22,17 @@ public class Input_PC : MonoBehaviour
         }
     }
 
+
+
     void OnUpdate()
     {
         if (Input.GetKeyDown(m_right))
             m_playerInput.InputKey(Keys.Right);
-
-        if (Input.GetKeyDown(m_left))
+        else if (Input.GetKeyDown(m_left))
             m_playerInput.InputKey(Keys.Left);
-
-        if (Input.GetKeyDown(m_up))
+        else if (Input.GetKeyDown(m_up))
             m_playerInput.InputKey(Keys.Up);
-
-        if (Input.GetKeyDown(m_down))
+        else if (Input.GetKeyDown(m_down))
             m_playerInput.InputKey(Keys.Down);
     }
 }
