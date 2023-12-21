@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
-public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ButtonScript : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandler
 {
     internal GameObject _previousScreen;
 
@@ -104,7 +104,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
 
 
-    public void OnPointerEnter(PointerEventData eventData)
+    /*public void OnPointerEnter(PointerEventData eventData)
     {
         CursorManager.Instance.SetHandCursor();
     }
@@ -112,5 +112,5 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void OnPointerExit(PointerEventData eventData)
     {
         CursorManager.Instance.SetStandartCursor();
-    }
+    }*/
 }

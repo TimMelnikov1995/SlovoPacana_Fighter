@@ -6,10 +6,18 @@ public class Tests : MonoBehaviour
     [SerializeField] ObjectPoolEnum m_vfx;
 
     #region Style
-    [SerializeField] float m_fl;
-    private float fl;
-    public float Fl;
-    void AttributeStyle(float _fl) { }
+    [SerializeField] float m_flNum;
+    private float flNum;
+    public float FlNum;
+    void AttributeStyle(float _flNum)
+    {
+        float fl_num;
+    }
+
+    // Нейминг:
+    // System - скрипт, отвечающий за работу нескольких скриптов
+    // Manager - скрипт, отвечающий за работу нескольких GameObject'ов или внешних объектов
+    // Controller - скрипт, отвечающий за работу конкретного GameObject'а и его дочерних объектов
     #endregion
 
     private void OnEnable()

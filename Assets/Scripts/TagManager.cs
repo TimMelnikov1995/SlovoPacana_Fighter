@@ -45,10 +45,12 @@ public class AnimationTags
     public const string DEATH_TRIGGER = "Death";
 }
 
-public class Axis
+public class AxisTags
 {
     public const string HORIZONTAL_AXIS = "Horizontal";
     public const string VERTICAL_AXIS = "Vertical";
+    public const string MOUSE_X = "Mouse X";
+    public const string MOUSE_Y = "Mouse Y";
 }
 
 public class Tags

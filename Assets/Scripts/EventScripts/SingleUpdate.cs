@@ -5,12 +5,13 @@ public class SingleUpdate : MonoBehaviour
 {
     #region Singelton
     private static SingleUpdate _instance;
+
     public static SingleUpdate Instance
     {
         get
         {
             if (_instance == null)
-                _instance = GameObject.FindObjectOfType<SingleUpdate>();
+                _instance = FindObjectOfType<SingleUpdate>();
 
             return _instance;
         }
@@ -22,8 +23,13 @@ public class SingleUpdate : MonoBehaviour
     public delegate void updateDelegate();
     public updateDelegate UpdateDelegate;
 
+    public delegate void lateUpdateDelegate();
+    public lateUpdateDelegate LateUpdateDelegate;
+
     public delegate void optimizedUpdateDelegate();
     public optimizedUpdateDelegate OptimizedUpdateDelegate;
+
+
 
     void Start()
     {
@@ -34,6 +40,13 @@ public class SingleUpdate : MonoBehaviour
     {
         UpdateDelegate?.Invoke();
     }
+
+    private void LateUpdate()
+    {
+        LateUpdateDelegate?.Invoke();
+    }
+
+
 
     IEnumerator OptimizedUpdate()
     {
