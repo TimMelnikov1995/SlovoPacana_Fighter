@@ -4,9 +4,17 @@ public class CharacterAnimation : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
 
-    public void MoveForward(bool move) { _animator.SetBool(AnimationTags.MOVEMENT, move); }
+    public void ChangeLayer(bool crouch = true)
+    {
+        if (crouch)
+            _animator.SetLayerWeight(1, 1);
+        else
+            _animator.SetLayerWeight(1, 0);
+    }
 
-    public void MoveBackward(bool move) { _animator.SetBool(AnimationTags.MOVEMENT, move); }
+    public void Move(float movement) { _animator.SetFloat(AnimationTags.MOVEMENT, movement); }
+
+    public void Rotate(float rotation) { _animator.SetFloat(AnimationTags.ROTATION, rotation); }
 
     public void Hit()
     {

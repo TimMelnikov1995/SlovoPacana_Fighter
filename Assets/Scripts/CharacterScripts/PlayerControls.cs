@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -13,9 +14,11 @@ public class PlayerControls : MonoBehaviour
 
     bool CheckCrouch(bool is_pressed)
     {
-        _colliderOnCrouch.enabled = is_pressed;
-        _colliderFullHeight.enabled = !is_pressed;
+        //_colliderOnCrouch.enabled = is_pressed;
+        //_colliderFullHeight.enabled = !is_pressed;
+        
         _characterAnimation.SetAnimationBoolByName(AnimationTags.CROUCH_ANIMATION, is_pressed);
+        //_characterAnimation.ChangeLayer(is_pressed);
 
         return is_pressed;
     }
@@ -48,13 +51,14 @@ public class PlayerControls : MonoBehaviour
             && !Input.GetKey(KeyCode.B))
                 _characterMovement.DetectMovement(_xMovement, _zMovement);
 
-            _characterAnimation.MoveForward(false);
-            _characterMovement.RotatePlayer(_xMovement);
+            _characterAnimation.Move(0);
+            //_characterMovement.RotatePlayer(_xMovement);
 
-            if(!CheckCrouch(Input.GetKey(KeyCode.C))
+            if (!CheckCrouch(Input.GetKey(KeyCode.C))
             && !CheckBlock(Input.GetKey(KeyCode.B)))
-                if (_xMovement != 0 || _zMovement != 0)
-                    _characterAnimation.MoveForward(true);
+            {
+                _characterAnimation.Move(_xMovement);
+            }
         }
     }
 }

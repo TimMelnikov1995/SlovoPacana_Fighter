@@ -4,7 +4,6 @@ public class CharacterMovement : MonoBehaviour
 {
     [SerializeField] float _xSpeed = 3f;
     [SerializeField] float _zSpeed = 1.5f;
-    [SerializeField] Transform _mesh;
 
     Rigidbody _rigidbody;
 
@@ -26,7 +25,7 @@ public class CharacterMovement : MonoBehaviour
         if (movement < 0)
             _yRotation = -90f;
 
-        _mesh.rotation = Quaternion.Euler(0f, _yRotation, 0f);
+        transform.rotation = Quaternion.Euler(0f, _yRotation, 0f);
     }
 
 
