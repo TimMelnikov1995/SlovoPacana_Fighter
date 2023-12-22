@@ -6,7 +6,7 @@ public class Tests : MonoBehaviour
     [SerializeField] ObjectPoolEnum m_vfx;
 
     #region Style
-    [SerializeField] float m_flNum;
+    [SerializeField] float m_fl_num;
     private float flNum;
     public float FlNum;
     void AttributeStyle(float _flNum)

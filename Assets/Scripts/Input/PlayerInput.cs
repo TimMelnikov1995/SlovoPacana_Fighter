@@ -34,7 +34,12 @@ public class PlayerInput : MonoBehaviour
 
     }
 
-    public void InputKey(Keys key)
+    public void InputMovement(float value)
+    {
+
+    }
+
+    public void InputComboKey(Keys key)
     {
         CheckKeyCombo(key);
 

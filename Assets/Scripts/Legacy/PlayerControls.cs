@@ -47,17 +47,20 @@ public class PlayerControls : MonoBehaviour
             _xMovement = Input.GetAxisRaw(AxisTags.HORIZONTAL_AXIS);
             //_zMovement = Input.GetAxisRaw(AxisTags.VERTICAL_AXIS);
 
-            if (!Input.GetKey(KeyCode.C)
+            if (!Input.GetKey(KeyCode.S)
             && !Input.GetKey(KeyCode.B))
                 _characterMovement.DetectMovement(_xMovement, _zMovement);
 
             _characterAnimation.Move(0);
             //_characterMovement.RotatePlayer(_xMovement);
 
-            if (!CheckCrouch(Input.GetKey(KeyCode.C))
+            if (!CheckCrouch(Input.GetKey(KeyCode.S))
             && !CheckBlock(Input.GetKey(KeyCode.B)))
             {
-                _characterAnimation.Move(_xMovement);
+                if(transform.rotation.eulerAngles.y < 180)
+                    _characterAnimation.Move(_xMovement);
+                else
+                    _characterAnimation.Move(-_xMovement);
             }
         }
     }
