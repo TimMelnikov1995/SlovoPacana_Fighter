@@ -4,10 +4,9 @@ public class CharacterAnimation : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
 
-    public void Move(bool move)
-    {
-        _animator.SetBool(AnimationTags.MOVEMENT, move);
-    }
+    public void MoveForward(bool move) { _animator.SetBool(AnimationTags.MOVEMENT, move); }
+
+    public void MoveBackward(bool move) { _animator.SetBool(AnimationTags.MOVEMENT, move); }
 
     public void Hit()
     {

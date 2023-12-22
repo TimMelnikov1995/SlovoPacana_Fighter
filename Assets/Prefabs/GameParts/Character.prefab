@@ -187,7 +187,7 @@ CapsuleCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.3
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb9700d044fb324c8499fb2f8bc3b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _xSpeed: 1
+  _xSpeed: 2
   _zSpeed: 0
   _mesh: {fileID: 1968883135968043332}
 --- !u!114 &1126488694378676608
@@ -326,6 +326,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 91c6547288f35b240bad25dab4c6787f, type: 2}
+    - target: {fileID: 9500000, guid: 88ddf392e972b6542b838a0dd680c78f, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

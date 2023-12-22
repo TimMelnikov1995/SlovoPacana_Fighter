@@ -39,26 +39,22 @@ public class PlayerControls : MonoBehaviour
 
     void Update()
     {
-        if(!_healthSystem._isDead)
+        if (!_healthSystem._isDead)
         {
-            _characterAnimation.Move(false);
+            _xMovement = Input.GetAxisRaw(AxisTags.HORIZONTAL_AXIS);
+            //_zMovement = Input.GetAxisRaw(AxisTags.VERTICAL_AXIS);
+
+            if (!Input.GetKey(KeyCode.C)
+            && !Input.GetKey(KeyCode.B))
+                _characterMovement.DetectMovement(_xMovement, _zMovement);
+
+            _characterAnimation.MoveForward(false);
             _characterMovement.RotatePlayer(_xMovement);
 
             if(!CheckCrouch(Input.GetKey(KeyCode.C))
             && !CheckBlock(Input.GetKey(KeyCode.B)))
                 if (_xMovement != 0 || _zMovement != 0)
-                    _characterAnimation.Move(true);
+                    _characterAnimation.MoveForward(true);
         }
-    }
-
-    void FixedUpdate()
-    {
-        _xMovement = Input.GetAxisRaw(AxisTags.HORIZONTAL_AXIS);
-        _zMovement = Input.GetAxisRaw(AxisTags.VERTICAL_AXIS);
-
-        if(!Input.GetKey(KeyCode.C)
-        && !Input.GetKey(KeyCode.B)
-        && !_healthSystem._isDead)
-            _characterMovement.DetectMovement(_xMovement, _zMovement);
     }
 }
