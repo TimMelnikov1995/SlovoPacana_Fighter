@@ -35,8 +35,8 @@ public class AnimationTags
     public const string ATTACK_3_TRIGGER = "Attack3";
 
     public const string CROUCH_ANIMATION = "Crouch";
-
     public const string BLOCK_ANIMATION = "Block";
+    public const string JUMP_ANIMATION = "Jump";
 
     public const string IDLE_ANIMATION = "Idle";
 

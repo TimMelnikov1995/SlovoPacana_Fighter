@@ -1,16 +1,25 @@
 using UnityEngine;
 
-public class PhysicsMovement : MonoBehaviour
+public class MovementController : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField] float m_speed;
 
     Rigidbody _rigidbody;
     Vector3 _normal;
 
+
+
+    void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
+
+
+
     public void Move(Vector3 direction)
     {
         Vector3 directionAlongSurface = Project(direction);
-        Vector3 offset = directionAlongSurface * (_speed * Time.deltaTime);
+        Vector3 offset = directionAlongSurface * (m_speed * Time.deltaTime);
 
         _rigidbody.MovePosition(_rigidbody.position + offset);
         //_rigidbody.AddForce(_rigidbody.position + offset);
@@ -20,13 +29,6 @@ public class PhysicsMovement : MonoBehaviour
     public Vector3 Project(Vector3 direction)
     {
         return direction - (_normal * Vector3.Dot(direction, _normal));
-    }
-
-
-
-    void Start()
-    {
-        _rigidbody = GetComponent<Rigidbody>();
     }
 
     /*private void OnDrawGizmos()

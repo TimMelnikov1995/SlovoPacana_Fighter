@@ -11,12 +11,16 @@ public enum Keys
 
 public class PlayerInput : MonoBehaviour
 {
+    [SerializeField] MovementController m_movement;
+    [SerializeField] CharacterAnimation m_character_animation;
     [Header("Combo")]
     [SerializeField] KeyCombo[] m_keyCombos;
     [SerializeField] float m_comboTime = 0.1f;
 
     float lastInputTime;
     Keys lastKey;
+
+
 
     private void OnEnable()
     {
@@ -29,14 +33,18 @@ public class PlayerInput : MonoBehaviour
             SingleUpdate.Instance.UpdateDelegate -= OnUpdate;
     }
 
+
+
     void OnUpdate()
     {
 
     }
 
-    public void InputMovement(float value)
-    {
 
+
+    public void SwitchPause()
+    {
+        //
     }
 
     public void InputComboKey(Keys key)
@@ -45,6 +53,37 @@ public class PlayerInput : MonoBehaviour
 
         lastInputTime = Time.time;
         lastKey = key;
+    }
+
+    public void Jump(bool do_jump)
+    {
+        m_character_animation.SetAnimationBoolByName(AnimationTags.JUMP_ANIMATION, do_jump);
+
+        //
+    }
+
+    public void Block(bool do_block)
+    {
+        m_character_animation.SetAnimationBoolByName(AnimationTags.BLOCK_ANIMATION, do_block);
+
+        //
+    }
+
+    public void Crouch(bool do_crouch)
+    {
+        m_character_animation.SetAnimationBoolByName(AnimationTags.CROUCH_ANIMATION, do_crouch);
+
+        //
+    }
+
+    public void Move(float value)
+    {
+        if (transform.rotation.eulerAngles.y < 180)
+            m_character_animation.Move(value);
+        else
+            m_character_animation.Move(-value);
+
+        m_movement.Move(new Vector3(value, 0, 0));
     }
 
     void CheckKeyCombo(Keys _currentKey)
@@ -60,6 +99,8 @@ public class PlayerInput : MonoBehaviour
             }
         }
     }
+
+
 
     [Serializable]
     class KeyCombo

@@ -117,9 +117,10 @@ GameObject:
   - component: {fileID: 1504191946354553221}
   - component: {fileID: 5493025974364660952}
   - component: {fileID: 2745126564464137839}
-  - component: {fileID: 3865387596080346835}
   - component: {fileID: 1126488694378676608}
   - component: {fileID: 7989601318055840654}
+  - component: {fileID: 807111803388092109}
+  - component: {fileID: 4622606773556776435}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -168,7 +169,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!136 &2745126564464137839
@@ -194,20 +195,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &3865387596080346835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3269049662474864739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cb9700d044fb324c8499fb2f8bc3b16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _x_speed: 2
-  _z_speed: 0
 --- !u!114 &1126488694378676608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,6 +223,35 @@ MonoBehaviour:
   _inBlockingState: 0
   _maxHealth: 5
   _currentHealth: 5
+--- !u!114 &807111803388092109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3269049662474864739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3b41ba21f8699546a738cf626d2e8ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_speed: 2
+--- !u!114 &4622606773556776435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3269049662474864739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee79fc62b5fe8d945a16315df6de3354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_movement: {fileID: 807111803388092109}
+  m_character_animation: {fileID: 5370055026541075832}
+  m_keyCombos: []
+  m_comboTime: 0.1
 --- !u!1 &6010662095790428844
 GameObject:
   m_ObjectHideFlags: 0

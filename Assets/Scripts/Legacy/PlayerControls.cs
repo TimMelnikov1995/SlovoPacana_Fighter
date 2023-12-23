@@ -3,8 +3,8 @@ using UnityEngine.InputSystem.EnhancedTouch;
 
 public class PlayerControls : MonoBehaviour
 {
-    [SerializeField] Collider _colliderFullHeight;
-    [SerializeField] Collider _colliderOnCrouch;
+    [SerializeField] Collider m_collider_full_height;
+    [SerializeField] Collider m_collider_on_crouch;
 
     HealthSystem _healthSystem;
     CharacterMovement _characterMovement;
