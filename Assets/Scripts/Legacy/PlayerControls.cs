@@ -42,6 +42,10 @@ public class PlayerControls : MonoBehaviour
 
     void Update()
     {
+    }
+
+    void FixedUpdate()
+    {
         if (!_healthSystem._isDead)
         {
             _xMovement = Input.GetAxisRaw(AxisTags.HORIZONTAL_AXIS);
@@ -54,14 +58,14 @@ public class PlayerControls : MonoBehaviour
             _characterAnimation.Move(0);
             //_characterMovement.RotatePlayer(_xMovement);
 
-            if (!CheckCrouch(Input.GetKey(KeyCode.S))
+            /*if (!CheckCrouch(Input.GetKey(KeyCode.S))
             && !CheckBlock(Input.GetKey(KeyCode.B)))
             {
                 if(transform.rotation.eulerAngles.y < 180)
                     _characterAnimation.Move(_xMovement);
                 else
                     _characterAnimation.Move(-_xMovement);
-            }
+            }*/
         }
     }
 }

@@ -2,20 +2,21 @@ using UnityEngine;
 
 public class KeyboardInputScript : MonoBehaviour
 {
-    private PhysicsMovement _movement;
+    PhysicsMovement _movement;
+    CharacterAnimation _characterAnimation;
 
-    private float _horizontal;
-    private float _vertical;
+    float _horizontal;
+    float _vertical;
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         _horizontal = Input.GetAxis(AxisTags.HORIZONTAL_AXIS);
-        _vertical = Input.GetAxis(AxisTags.VERTICAL_AXIS);
+        //_vertical = Input.GetAxis(AxisTags.VERTICAL_AXIS);
 
-        _movement.Move(new Vector3(_horizontal, 0, _vertical));
+        _movement.Move(new Vector3(_horizontal, 0, 0));
     }
 
-    private void Start()
+    void Start()
     {
         _movement = GetComponent<PhysicsMovement>();
     }

@@ -4,8 +4,8 @@ public class PhysicsMovement : MonoBehaviour
 {
     [SerializeField] private float _speed;
 
-    private Rigidbody _rigidbody;
-    private Vector3 _normal;
+    Rigidbody _rigidbody;
+    Vector3 _normal;
 
     public void Move(Vector3 direction)
     {
@@ -13,6 +13,8 @@ public class PhysicsMovement : MonoBehaviour
         Vector3 offset = directionAlongSurface * (_speed * Time.deltaTime);
 
         _rigidbody.MovePosition(_rigidbody.position + offset);
+        //_rigidbody.AddForce(_rigidbody.position + offset);
+        //_rigidbody.AddRelativeForce(_rigidbody.position + offset);
     }
 
     public Vector3 Project(Vector3 direction)
@@ -27,7 +29,7 @@ public class PhysicsMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.localPosition, transform.localPosition + (_normal * 2));
@@ -49,5 +51,5 @@ public class PhysicsMovement : MonoBehaviour
     {
         _rigidbody = gameObject.GetComponent<Rigidbody>();
         _normal = collision.GetContact(0).normal;
-    }
+    }*/
 }
