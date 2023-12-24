@@ -17,7 +17,7 @@ public class PlayerControls : MonoBehaviour
         //_colliderOnCrouch.enabled = is_pressed;
         //_colliderFullHeight.enabled = !is_pressed;
         
-        _characterAnimation.SetAnimationBoolByName(AnimationTags.CROUCH_ANIMATION, is_pressed);
+        //_characterAnimation.SetAnimationBoolByName(AnimationTags.CROUCH_ANIMATION, is_pressed);
         //_characterAnimation.ChangeLayer(is_pressed);
 
         return is_pressed;
@@ -42,6 +42,7 @@ public class PlayerControls : MonoBehaviour
 
     void Update()
     {
+
     }
 
     void FixedUpdate()
@@ -55,7 +56,7 @@ public class PlayerControls : MonoBehaviour
             && !Input.GetKey(KeyCode.B))
                 _characterMovement.DetectMovement(_xMovement, _zMovement);
 
-            _characterAnimation.Move(0);
+            _characterAnimation.HorizontalMove(0);
             //_characterMovement.RotatePlayer(_xMovement);
 
             /*if (!CheckCrouch(Input.GetKey(KeyCode.S))

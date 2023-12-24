@@ -2,25 +2,25 @@ using UnityEngine;
 
 public enum CharacterState
 {
-    Move,
-    Air,
-    Block,
-    Hit,
+    Died,
+    InAir,
+    Moving,
+    Turning,
+    Standing,
+    Crouching,
+    Blocking,
+    GetHit,
     StandAttack1,
-    StandAttack2, 
-    Crouch,
+    StandAttack2,
     CrouchAttack1,
     CrouchAttack2,
-    Died,
 }
 
 public class FightingCharacterController : MonoBehaviour
 {
-    CharacterState characterState;
+    CharacterState characterState = CharacterState.Standing;
 
     public CharacterState CharacterState => characterState;
-
-    CharacterState _state;
 
 
 
@@ -33,7 +33,7 @@ public class FightingCharacterController : MonoBehaviour
 
     public void TryToSetState(CharacterState state)
     {
-        if (_state != state)
+        if (characterState != state)
         {
 
         }
@@ -41,34 +41,43 @@ public class FightingCharacterController : MonoBehaviour
 
     public void SetState(CharacterState state)
     {
-        _state = state;
+        characterState = state;
 
-        switch (_state)
+        switch (characterState)
         {
-            /*case CheckerState.Died:
-                _rigidbody.angularVelocity -= _rigidbody.angularVelocity;
-                _rigidbody.velocity -= _rigidbody.velocity;
+            case CharacterState.Died:
 
-                // воспроизводить анимацию смерти шашки
+                break;
+            case CharacterState.InAir:
+                
+                break;
+            case CharacterState.Moving:
 
-                //_dissolveControl.SetDissolve(1);
-                _markAnimationController.Kill();
-                gameObject.SetActive(false);
+                break;
+            case CharacterState.Turning:
 
-                TurnSystem.Instance.SetCheckerReady(this, true);
                 break;
-            case CheckerState.Standing:
-                _markAnimationController.Pull(false);
-                TurnSystem.Instance.SetCheckerReady(this, true);
+            case CharacterState.Crouching:
+
                 break;
-            case CheckerState.Moving:
-                _markAnimationController.Pull(false);
-                TurnSystem.Instance.SetCheckerReady(this, false);
+            case CharacterState.Blocking:
+
                 break;
-            case CheckerState.Turning:
-                _markAnimationController.Pull(true);
-                TurnSystem.Instance.SetCheckerReady(this, false);
-                break;*/
+            case CharacterState.GetHit:
+                
+                break;
+            case CharacterState.StandAttack1:
+
+                break;
+            case CharacterState.StandAttack2:
+
+                break;
+            case CharacterState.CrouchAttack1:
+
+                break;
+            case CharacterState.CrouchAttack2:
+
+                break;
         }
     }
 }

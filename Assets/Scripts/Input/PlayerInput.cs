@@ -11,8 +11,9 @@ public enum Keys
 
 public class PlayerInput : MonoBehaviour
 {
-    [SerializeField] MovementController m_movement;
     [SerializeField] CharacterAnimation m_character_animation;
+    [SerializeField] MovementController m_movement;
+
     [Header("Combo")]
     [SerializeField] KeyCombo[] m_keyCombos;
     [SerializeField] float m_comboTime = 0.1f;
@@ -22,12 +23,12 @@ public class PlayerInput : MonoBehaviour
 
 
 
-    private void OnEnable()
+    void OnEnable()
     {
         SingleUpdate.Instance.UpdateDelegate += OnUpdate;
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
         if (SingleUpdate.Instance != null)
             SingleUpdate.Instance.UpdateDelegate -= OnUpdate;
@@ -55,13 +56,6 @@ public class PlayerInput : MonoBehaviour
         lastKey = key;
     }
 
-    public void Jump(bool do_jump)
-    {
-        m_character_animation.SetAnimationBoolByName(AnimationTags.JUMP_ANIMATION, do_jump);
-
-        //
-    }
-
     public void Block(bool do_block)
     {
         m_character_animation.SetAnimationBoolByName(AnimationTags.BLOCK_ANIMATION, do_block);
@@ -69,19 +63,22 @@ public class PlayerInput : MonoBehaviour
         //
     }
 
-    public void Crouch(bool do_crouch)
+    public void VerticalMove(float value)
     {
-        m_character_animation.SetAnimationBoolByName(AnimationTags.CROUCH_ANIMATION, do_crouch);
+        m_character_animation.VerticalMove(value);
 
-        //
+        if (value == 1f)
+            m_movement.Jump();
+        else if (value == -1f)
+            m_movement.Crouch();
     }
 
-    public void Move(float value)
+    public void HorizontalMove(float value)
     {
         if (transform.rotation.eulerAngles.y < 180)
-            m_character_animation.Move(value);
+            m_character_animation.HorizontalMove(value);
         else
-            m_character_animation.Move(-value);
+            m_character_animation.HorizontalMove(-value);
 
         m_movement.Move(new Vector3(value, 0, 0));
     }

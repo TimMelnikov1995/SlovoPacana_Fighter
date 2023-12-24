@@ -2,33 +2,48 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
+    [SerializeField] FightingCharacterController m_character_controller;
+    [SerializeField] Rigidbody _rigidbody;
+    [Space]
     [SerializeField] float m_speed;
 
-    Rigidbody _rigidbody;
     Vector3 _normal;
 
 
 
     void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+
     }
 
 
 
     public void Move(Vector3 direction)
     {
-        Vector3 directionAlongSurface = Project(direction);
-        Vector3 offset = directionAlongSurface * (m_speed * Time.deltaTime);
+        if (m_character_controller.CharacterState == CharacterState.Moving)
+        {
+            Vector3 directionAlongSurface = Project(direction);
+            Vector3 offset = directionAlongSurface * (m_speed * Time.deltaTime);
 
-        _rigidbody.MovePosition(_rigidbody.position + offset);
-        //_rigidbody.AddForce(_rigidbody.position + offset);
-        //_rigidbody.AddRelativeForce(_rigidbody.position + offset);
+            _rigidbody.MovePosition(_rigidbody.position + offset);
+            //_rigidbody.AddForce(_rigidbody.position + offset);
+            //_rigidbody.AddRelativeForce(_rigidbody.position + offset);
+        }
     }
 
     public Vector3 Project(Vector3 direction)
     {
         return direction - (_normal * Vector3.Dot(direction, _normal));
+    }
+
+    public void Jump()
+    {
+        _rigidbody.AddForce(_normal);
+    }
+
+    public void Crouch()
+    {
+
     }
 
     /*private void OnDrawGizmos()

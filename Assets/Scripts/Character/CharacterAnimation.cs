@@ -12,7 +12,9 @@ public class CharacterAnimation : MonoBehaviour
             _animator.SetLayerWeight(1, 0);
     }
 
-    public void Move(float movement) { _animator.SetFloat(AnimationTags.MOVEMENT, movement); }
+    public void HorizontalMove(float movement) { _animator.SetFloat(AnimationTags.HORIZONTAL_MOVEMENT, movement); }
+
+    public void VerticalMove(float movement) { _animator.SetFloat(AnimationTags.VERTICAL_MOVEMENT, movement); }
 
     public void Rotate(float rotation) { _animator.SetFloat(AnimationTags.ROTATION, rotation); }
 
