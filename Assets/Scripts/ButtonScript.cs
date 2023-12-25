@@ -1,7 +1,5 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
 
 public class ButtonScript : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandler
 {
@@ -33,22 +31,10 @@ public class ButtonScript : MonoBehaviour//, IPointerEnterHandler, IPointerExitH
         Application.Quit();
     }
 
-    public static void LoadArena1()
+    public static void LoadArena(string scene_name)
     {
         UIManager.Instance.PlayMenuChoose();
-        SceneManager.LoadScene(NamesTags.ARENA_1_SCENE);
-    }
-
-    public static void LoadArena2()
-    {
-        UIManager.Instance.PlayMenuChoose();
-        SceneManager.LoadScene(NamesTags.ARENA_2_SCENE);
-    }
-
-    public static void LoadArena3()
-    {
-        UIManager.Instance.PlayMenuChoose();
-        SceneManager.LoadScene(NamesTags.ARENA_3_SCENE);
+        SceneManager.LoadScene(scene_name);
     }
 
 

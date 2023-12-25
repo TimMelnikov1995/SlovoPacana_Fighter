@@ -110,13 +110,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2726016720853725097, guid: ab114702423c2784db17b822dc276d9e,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2726016720853725097, guid: ab114702423c2784db17b822dc276d9e,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadArena1
+      value: LoadArena
       objectReference: {fileID: 0}
     - target: {fileID: 2726016720853725097, guid: ab114702423c2784db17b822dc276d9e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ButtonScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2726016720853725097, guid: ab114702423c2784db17b822dc276d9e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Arena1
       objectReference: {fileID: 0}
     - target: {fileID: 4971272883774145613, guid: ab114702423c2784db17b822dc276d9e,
         type: 3}
@@ -128,6 +138,17 @@ PrefabInstance:
       propertyPath: m_text
       value: Arena 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7990394901867425357, guid: ab114702423c2784db17b822dc276d9e,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 7990394901867425357, guid: ab114702423c2784db17b822dc276d9e,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -249,13 +270,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2726016720853725097, guid: ab114702423c2784db17b822dc276d9e,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2726016720853725097, guid: ab114702423c2784db17b822dc276d9e,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadArena2
+      value: LoadArena
       objectReference: {fileID: 0}
     - target: {fileID: 2726016720853725097, guid: ab114702423c2784db17b822dc276d9e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ButtonScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2726016720853725097, guid: ab114702423c2784db17b822dc276d9e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Arena2
       objectReference: {fileID: 0}
     - target: {fileID: 4971272883774145613, guid: ab114702423c2784db17b822dc276d9e,
         type: 3}
@@ -267,6 +298,17 @@ PrefabInstance:
       propertyPath: m_text
       value: Arena 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7990394901867425357, guid: ab114702423c2784db17b822dc276d9e,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 7990394901867425357, guid: ab114702423c2784db17b822dc276d9e,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -396,6 +438,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5012213631080817747, guid: 1dc7d27e4624ef1489822c2828c3077a,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 5012213631080817747, guid: 1dc7d27e4624ef1489822c2828c3077a,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 6681370063644494808, guid: 1dc7d27e4624ef1489822c2828c3077a,
         type: 3}
       propertyPath: m_text
@@ -403,6 +456,17 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 6681370063644494808, guid: 1dc7d27e4624ef1489822c2828c3077a,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 6681370063644494808, guid: 1dc7d27e4624ef1489822c2828c3077a,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 7535225160947427435, guid: 1dc7d27e4624ef1489822c2828c3077a,
         type: 3}
       propertyPath: m_Name

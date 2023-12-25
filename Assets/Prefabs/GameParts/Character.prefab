@@ -248,6 +248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b41ba21f8699546a738cf626d2e8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_character_controller: {fileID: 6515548869814948370}
+  _rigidbody: {fileID: 5493025974364660952}
   m_speed: 2
 --- !u!114 &4622606773556776435
 MonoBehaviour:
@@ -262,6 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_character_animation: {fileID: 5370055026541075832}
+  m_movement: {fileID: 807111803388092109}
   m_keyCombos: []
   m_comboTime: 0.1
 --- !u!1 &6010662095790428844
