@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -281,6 +281,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3793589106879917222, guid: 8c2749b25d021de4eba8d4e9354838dd,
     type: 3}
   m_PrefabInstance: {fileID: 107533906}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &110562713 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1469271602296137959, guid: d7bc6327fc4c9a942a2c90903fa781c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 5163998761817633627}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &131094118
 PrefabInstance:
@@ -1866,6 +1872,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 489207212}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &499842004 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2236058972784108957, guid: d7bc6327fc4c9a942a2c90903fa781c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 5163998761817633627}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &521517862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2747,7 +2759,6 @@ GameObject:
   - component: {fileID: 830751402}
   - component: {fileID: 830751401}
   - component: {fileID: 830751403}
-  - component: {fileID: 830751404}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2808,26 +2819,6 @@ MonoBehaviour:
     audioCollide1: {fileID: 0}
     audioCollide2: {fileID: 0}
     soundRate: 0
---- !u!114 &830751404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830751400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34f0557ead9bcfb499fcef6467e1a950, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MainMenuScreen: {fileID: 0}
-  SettingsScreen: {fileID: 0}
-  CreditsScreen: {fileID: 0}
-  RulesScreen: {fileID: 0}
-  ArenaSelectionScreen: {fileID: 0}
-  audioMenuChoose: {fileID: 0}
-  audioMenuTransit: {fileID: 0}
-  audioMenuBack: {fileID: 0}
 --- !u!4 &856811625 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 35b8aa2eaa64f8944930991ba431eb4e,
@@ -3739,6 +3730,12 @@ MonoBehaviour:
   - {fileID: 435869107}
   - {fileID: 309134609}
   - {fileID: 1416782530}
+--- !u!82 &1172722544 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1732871557213861977, guid: d7bc6327fc4c9a942a2c90903fa781c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 5163998761817633627}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1223508350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6863,6 +6860,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5392535008919394482}
+  - component: {fileID: 6816323367462863747}
   m_Layer: 0
   m_Name: UI Manager
   m_TagString: Untagged
@@ -6870,6 +6868,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6816323367462863747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6816323367462863746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f0557ead9bcfb499fcef6467e1a950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainMenuScreen: {fileID: 0}
+  SettingsScreen: {fileID: 0}
+  CreditsScreen: {fileID: 0}
+  RulesScreen: {fileID: 0}
+  ArenaSelectionScreen: {fileID: 0}
+  audioMenuChoose: {fileID: 1172722544}
+  audioMenuTransit: {fileID: 499842004}
+  audioMenuBack: {fileID: 110562713}
 --- !u!4 &6822950098761795498
 Transform:
   m_ObjectHideFlags: 0
