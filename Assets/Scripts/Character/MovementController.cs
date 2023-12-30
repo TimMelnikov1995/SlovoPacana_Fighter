@@ -38,7 +38,7 @@ public class MovementController : MonoBehaviour
 
     public void Jump()
     {
-        _rigidbody.AddForce(_normal);
+        _rigidbody.AddForce(_normal + (Vector3.up * 5));
     }
 
     public void Crouch()
