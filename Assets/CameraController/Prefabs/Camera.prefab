@@ -185,4 +185,7 @@ MonoBehaviour:
   _playerTransform: {fileID: 0}
   _targetTransform: {fileID: 0}
   _mainCamera: {fileID: 6204184604621836303}
-  _smoothSpeed: 0.05
+  _smoothSpeed: 0.02
+  _minDesiredDistanceTogether: 5
+  _minDesiredDistanceAlone: 10
+  _distanceOffset: 2
