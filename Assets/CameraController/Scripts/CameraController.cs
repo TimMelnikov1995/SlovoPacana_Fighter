@@ -12,9 +12,6 @@ public class CameraController : MonoBehaviour
     [SerializeField] float _minDesiredDistanceAlone = 10;
     [SerializeField] float _distanceOffset = 2;
 
-    internal Vector3 target,
-                     offset;
-
     Mesh _cameraMesh;
 
 
