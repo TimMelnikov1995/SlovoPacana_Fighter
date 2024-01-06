@@ -115,12 +115,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1504191946354553221}
-  - component: {fileID: 5493025974364660952}
-  - component: {fileID: 2745126564464137839}
+  - component: {fileID: 8192655366249989190}
   - component: {fileID: 1126488694378676608}
   - component: {fileID: 7989601318055840654}
-  - component: {fileID: 6515548869814948370}
-  - component: {fileID: 807111803388092109}
+  - component: {fileID: 7892304933155826059}
   - component: {fileID: 4622606773556776435}
   m_Layer: 0
   m_Name: Character
@@ -146,35 +144,8 @@ Transform:
   - {fileID: 211244822636860566}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &5493025974364660952
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3269049662474864739}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 120
-  m_CollisionDetection: 0
---- !u!136 &2745126564464137839
-CapsuleCollider:
+--- !u!143 &8192655366249989190
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -191,10 +162,13 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.4
+  serializedVersion: 3
   m_Height: 1
-  m_Direction: 1
+  m_Radius: 0.4
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &1126488694378676608
 MonoBehaviour:
@@ -224,7 +198,7 @@ MonoBehaviour:
   _inBlockingState: 0
   _maxHealth: 5
   _currentHealth: 5
---- !u!114 &6515548869814948370
+--- !u!114 &7892304933155826059
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,24 +207,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3269049662474864739}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29b04435b2134ec45b272d0c1d75f821, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f161a85214edb945b36907c4c85a093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &807111803388092109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3269049662474864739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3b41ba21f8699546a738cf626d2e8ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_character_controller: {fileID: 6515548869814948370}
-  _rigidbody: {fileID: 5493025974364660952}
-  m_speed: 2
+  _characterController: {fileID: 8192655366249989190}
+  _jumpHeight: 0
+  _walkSpeed: 1
+  _gravity: 3
 --- !u!114 &4622606773556776435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,8 +226,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee79fc62b5fe8d945a16315df6de3354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horizontal_move: 0
+  vertical_move: 0
+  block: 0
+  jump: 0
+  crouch: 0
   m_character_animation: {fileID: 5370055026541075832}
-  m_movement: {fileID: 807111803388092109}
   m_keyCombos: []
   m_comboTime: 0.1
 --- !u!1 &6010662095790428844

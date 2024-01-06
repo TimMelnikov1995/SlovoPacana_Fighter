@@ -3,6 +3,7 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     [SerializeField] FightingCharacterController m_character_controller;
+    [SerializeField] CharacterController m_characterController;
     [SerializeField] Rigidbody _rigidbody;
     [Space]
     [SerializeField] float m_speed;

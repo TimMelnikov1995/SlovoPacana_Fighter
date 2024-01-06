@@ -3,24 +3,6 @@ using UnityEngine;
 
 public class SingleUpdate : MonoBehaviour
 {
-    #region Singelton
-    private static SingleUpdate _instance;
-    public static SingleUpdate Instance
-    {
-        get
-        {
-            if (_instance == null)
-                _instance = GameObject.FindObjectOfType<SingleUpdate>();
-
-            return _instance;
-        }
-    }
-    #endregion
-
-
-
-    [SerializeField] float m_optimizedUpdateTime = 0.1f;
-
     public delegate void updateDelegate();
     public updateDelegate UpdateDelegate;
 
@@ -29,6 +11,24 @@ public class SingleUpdate : MonoBehaviour
 
     public delegate void optimizedUpdateDelegate();
     public optimizedUpdateDelegate OptimizedUpdateDelegate;
+
+    [SerializeField] float m_optimizedUpdateTime = 0.1f;
+
+
+
+    #region Singelton
+    private static SingleUpdate _instance;
+    public static SingleUpdate Instance
+    {
+        get
+        {
+            if (_instance == null)
+                _instance = FindObjectOfType<SingleUpdate>();
+
+            return _instance;
+        }
+    }
+    #endregion
 
 
 

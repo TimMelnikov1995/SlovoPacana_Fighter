@@ -1,9 +1,7 @@
 using UnityEngine;
 
-public class Input_PC : MonoBehaviour
+public class Input_PC : InputVariant
 {
-    [SerializeField] PlayerInput m_player_input;
-
     [Header("Binds")]
     [SerializeField] KeyCode m_block = KeyCode.Space;
     [SerializeField] KeyCode m_pause = KeyCode.Escape;
@@ -15,41 +13,26 @@ public class Input_PC : MonoBehaviour
 
 
 
-    private void OnEnable()
-    {
-        SingleUpdate.Instance.UpdateDelegate += OnUpdate;
-    }
-
-    private void OnDisable()
-    {
-        if (SingleUpdate.Instance != null)
-        {
-            SingleUpdate.Instance.UpdateDelegate -= OnUpdate;
-        }
-    }
-
-
-
-    void OnUpdate()
+    protected override void OnUpdate()
     {
         if (Input.GetKeyDown(m_pause))
-            m_player_input.SwitchPause();
+            m_input_script.SwitchPause();
 
         if (Input.GetKeyDown(m_punch_1))
-            m_player_input.InputComboKey(Keys.Up);
+            m_input_script.InputComboKey(Keys.Up);
 
         if (Input.GetKeyDown(m_punch_2))
-            m_player_input.InputComboKey(Keys.Down);
+            m_input_script.InputComboKey(Keys.Down);
 
         if (Input.GetKeyDown(m_kick_1))
-            m_player_input.InputComboKey(Keys.Left);
+            m_input_script.InputComboKey(Keys.Left);
 
         if (Input.GetKeyDown(m_kick_2))
-            m_player_input.InputComboKey(Keys.Right);
+            m_input_script.InputComboKey(Keys.Right);
 
-        m_player_input.Block(Input.GetKey(m_block));
+        m_input_script.Block(Input.GetKey(m_block));
 
-        m_player_input.HorizontalMove(Input.GetAxisRaw(AxisTags.HORIZONTAL_AXIS));
-        m_player_input.VerticalMove(Input.GetAxisRaw(AxisTags.VERTICAL_AXIS));
+        m_input_script.HorizontalMove(Input.GetAxisRaw(AxisTags.HORIZONTAL_AXIS));
+        m_input_script.VerticalMove(Input.GetAxisRaw(AxisTags.VERTICAL_AXIS));
     }
 }

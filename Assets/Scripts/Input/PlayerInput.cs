@@ -11,8 +11,14 @@ public enum Keys
 
 public class PlayerInput : MonoBehaviour
 {
+    public float horizontal_move;
+    public float vertical_move;
+    public bool block;
+    public bool jump;
+    public bool crouch;
+
     [SerializeField] CharacterAnimation m_character_animation;
-    [SerializeField] MovementController m_movement;
+    //[SerializeField] MovementController m_movement;
 
     [Header("Combo")]
     [SerializeField] KeyCombo[] m_keyCombos;
@@ -23,23 +29,21 @@ public class PlayerInput : MonoBehaviour
 
 
 
-    void OnEnable()
+    #region Singelton
+    private static PlayerInput _instance;
+    public static PlayerInput Instance
     {
-        SingleUpdate.Instance.UpdateDelegate += OnUpdate;
+        get
+        {
+            if (_instance == null)
+                _instance = FindObjectOfType<PlayerInput>();
+
+            return _instance;
+        }
     }
-
-    void OnDisable()
-    {
-        if (SingleUpdate.Instance != null)
-            SingleUpdate.Instance.UpdateDelegate -= OnUpdate;
-    }
+    #endregion
 
 
-
-    void OnUpdate()
-    {
-
-    }
 
 
 
@@ -60,6 +64,7 @@ public class PlayerInput : MonoBehaviour
     {
         m_character_animation.SetAnimationBoolByName(AnimationTags.BLOCK_ANIMATION, do_block);
 
+        block = do_block;
         //
     }
 
@@ -67,20 +72,25 @@ public class PlayerInput : MonoBehaviour
     {
         m_character_animation.VerticalMove(value);
 
+        jump = false;
+        crouch = false;
+
         if (value == 1f)
-            m_movement.Jump();
+            jump = true; //m_movement.Jump();
         else if (value == -1f)
-            m_movement.Crouch();
+            crouch = true; //m_movement.Crouch();
     }
 
     public void HorizontalMove(float value)
     {
+        horizontal_move = value;
+
         if (transform.rotation.eulerAngles.y < 180)
             m_character_animation.HorizontalMove(value);
         else
             m_character_animation.HorizontalMove(-value);
 
-        m_movement.Move(new Vector3(value, 0, 0));
+        //m_movement.Move(new Vector3(value, 0, 0));
     }
 
     void CheckKeyCombo(Keys _currentKey)

@@ -1,20 +1,5 @@
-using UnityEngine;
-
-public class Input_AI : MonoBehaviour
+public class Input_AI : InputVariant
 {
-    void OnEnable()
-    {
-        SingleUpdate.Instance.UpdateDelegate += OnUpdate;
-    }
-
-    void OnDisable()
-    {
-        if(SingleUpdate.Instance != null)
-        {
-            SingleUpdate.Instance.UpdateDelegate -= OnUpdate;
-        }
-    }
-
     void Start()
     {
         
@@ -22,7 +7,7 @@ public class Input_AI : MonoBehaviour
 
 
 
-    void OnUpdate()
+    protected override void OnUpdate()
     {
         
     }
