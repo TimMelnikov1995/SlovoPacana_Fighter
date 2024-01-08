@@ -23,9 +23,7 @@ public class CS_Idle : CFSM_BaseState
         if (!IsOnGround())
             _stateMachine.SetState<CS_InAir>();
 
-        Debug.Log(PlayerInput.Instance.horizontal_move);
-
-        if (PlayerInput.Instance.horizontal_move != 0)
-            _stateMachine.SetState<CS_Walking>();
+        if (_stateMachine.characterInput.Horizontal_Move != 0)
+            _stateMachine.SetState<CS_Moving>();
     }
 }

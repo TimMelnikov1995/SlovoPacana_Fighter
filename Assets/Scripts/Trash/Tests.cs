@@ -8,7 +8,7 @@ public class Tests : MonoBehaviour
     #region Style
     [SerializeField] float m_fl_num;
     private float _flNum;
-    public float FlNum;
+    public float Fl_Num;
     void AttributeStyle(float flNum)
     {
         float fl_num;

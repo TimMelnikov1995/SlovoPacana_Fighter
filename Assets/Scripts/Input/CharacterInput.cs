@@ -9,13 +9,12 @@ public enum Keys
     Down,
 }
 
-public class PlayerInput : MonoBehaviour
+public class CharacterInput : MonoBehaviour
 {
-    public float horizontal_move;
-    public float vertical_move;
-    public bool block;
-    public bool jump;
-    public bool crouch;
+    public float Horizontal_Move { get; private set; }
+    public bool Block { get; private set; }
+    public bool Jump { get; private set; }
+    public bool Crouch { get; private set; }
 
     [SerializeField] CharacterAnimation m_character_animation;
     //[SerializeField] MovementController m_movement;
@@ -26,24 +25,6 @@ public class PlayerInput : MonoBehaviour
 
     float lastInputTime;
     Keys lastKey;
-
-
-
-    #region Singelton
-    private static PlayerInput _instance;
-    public static PlayerInput Instance
-    {
-        get
-        {
-            if (_instance == null)
-                _instance = FindObjectOfType<PlayerInput>();
-
-            return _instance;
-        }
-    }
-    #endregion
-
-
 
 
 
@@ -60,30 +41,30 @@ public class PlayerInput : MonoBehaviour
         lastKey = key;
     }
 
-    public void Block(bool do_block)
+    public void SetBlock(bool do_block)
     {
         m_character_animation.SetAnimationBoolByName(AnimationTags.BLOCK_ANIMATION, do_block);
 
-        block = do_block;
+        Block = do_block;
         //
     }
 
-    public void VerticalMove(float value)
+    public void SetVerticalMove(float value)
     {
         m_character_animation.VerticalMove(value);
 
-        jump = false;
-        crouch = false;
+        Jump = false;
+        Crouch = false;
 
         if (value == 1f)
-            jump = true; //m_movement.Jump();
+            Jump = true; //m_movement.Jump();
         else if (value == -1f)
-            crouch = true; //m_movement.Crouch();
+            Crouch = true; //m_movement.Crouch();
     }
 
-    public void HorizontalMove(float value)
+    public void SetHorizontalMove(float value)
     {
-        horizontal_move = value;
+        Horizontal_Move = value;
 
         if (transform.rotation.eulerAngles.y < 180)
             m_character_animation.HorizontalMove(value);

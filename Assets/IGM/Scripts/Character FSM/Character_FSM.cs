@@ -1,11 +1,31 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class Character_FSM// : FinishStateMachine
 {
+	public CharacterController characterController { get; }
+    public CharacterAnimation characterAnimation { get; }
+    public CharacterInput characterInput { get; }
+	public Transform characterTransform { get; }
+
 	private CFSM_BaseState _currentState { get; set; }
 
 	private Dictionary<Type, CFSM_BaseState> _states = new ();
+
+	public event Action<CFSM_BaseState> StateChanged; 
+
+
+
+	public Character_FSM (CharacterController character_controller, CharacterAnimation character_animation, CharacterInput character_input, Transform character_transform)
+	{
+		characterController = character_controller;
+		characterAnimation = character_animation;
+		characterInput = character_input;
+		characterTransform = character_transform;
+	}
+
+
 
 	public void AddState(CFSM_BaseState state)
 	{
@@ -26,6 +46,8 @@ public class Character_FSM// : FinishStateMachine
 			_currentState = newState;
 
 			_currentState.Enter();
+
+			StateChanged?.Invoke(_currentState);
 		}
 	}
 

@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class CS_Moving : CFSM_CCC_State
+public class CS_Moving : CFSM_BaseState
 {
     protected readonly float _speed;
 
 
 
-    public CS_Moving(Character_FSM state_machine, CharacterController character_controller, Transform character_transform, float speed) : base(state_machine, character_controller, character_transform)
+    public CS_Moving(Character_FSM state_machine, float speed) : base(state_machine)
     {
         _speed = speed;
     }
@@ -20,7 +20,7 @@ public class CS_Moving : CFSM_CCC_State
         if (input_direction.sqrMagnitude != 0)
             _stateMachine.SetState<CS_Idle>();
 
-        if (PlayerInput.Instance.jump)
+        if (_stateMachine.characterInput.Jump)
             _stateMachine.SetState<CS_Jumping>();
 
         //if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -33,8 +33,8 @@ public class CS_Moving : CFSM_CCC_State
 
     protected Vector2 ReadInput()
     {
-        float horizontal = PlayerInput.Instance.horizontal_move;
-        //float vertical = PlayerInput.Instance.vertical_move;
+        float horizontal = _stateMachine.characterInput.Horizontal_Move;
+        //float vertical = PlayerInput.vertical_move;
 
         return new Vector2(horizontal, 0);
     }
@@ -43,10 +43,10 @@ public class CS_Moving : CFSM_CCC_State
 
     protected virtual void Move(Vector2 input_direction)
     {
-        Vector3 moving_direction = _characterTransform.forward * input_direction.x;
+        Vector3 moving_direction = _stateMachine.characterTransform.forward * input_direction.x;
                                  //+ _characterTransform.right * input_direction.x;
         moving_direction *= _speed * Time.deltaTime;
 
-        _characterController.Move(moving_direction);
+        _stateMachine.characterController.Move(moving_direction);
     }
 }

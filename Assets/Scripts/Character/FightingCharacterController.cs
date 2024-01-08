@@ -18,6 +18,12 @@ public enum CharacterState
 
 public class FightingCharacterController : MonoBehaviour
 {
+    [SerializeField] Character_FSM characterFSM;
+    [SerializeField] float WalkSpeed;
+    [SerializeField] float RunSpeed;
+    [SerializeField] float JumpHeight;
+    [SerializeField] float GravityValue;
+
     CharacterState characterState = CharacterState.Standing;
 
     public CharacterState CharacterState => characterState;
@@ -31,11 +37,30 @@ public class FightingCharacterController : MonoBehaviour
 
 
 
-    public void TryToSetState(CharacterState state)
+    /*private void OnEnable()
     {
-        if (characterState != state)
-        {
+        characterFSM.StateChanged += OnStateChanged;
+    }
 
+    private void OnDisable()
+    {
+        characterFSM.StateChanged -= OnStateChanged;
+    }
+
+    void OnStateChanged(CFSM_BaseState new_state)
+    {
+        //if (new_state is CS_Death death_state)
+        //{
+            //death_state.Update();
+        //}
+
+        switch(new_state)
+        {
+            case CS_Death:
+                SetDeath();
+                break;
+            case CS_Idle:
+                break;
         }
     }
 
@@ -79,5 +104,5 @@ public class FightingCharacterController : MonoBehaviour
 
                 break;
         }
-    }
+    }*/
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class InputVariant : MonoBehaviour
 {
-    [SerializeField] protected PlayerInput m_input_script;
+    [SerializeField] protected CharacterInput m_input_script;
 
     
 

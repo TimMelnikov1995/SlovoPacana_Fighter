@@ -30,9 +30,9 @@ public class Input_PC : InputVariant
         if (Input.GetKeyDown(m_kick_2))
             m_input_script.InputComboKey(Keys.Right);
 
-        m_input_script.Block(Input.GetKey(m_block));
+        m_input_script.SetBlock(Input.GetKey(m_block));
 
-        m_input_script.HorizontalMove(Input.GetAxisRaw(AxisTags.HORIZONTAL_AXIS));
-        m_input_script.VerticalMove(Input.GetAxisRaw(AxisTags.VERTICAL_AXIS));
+        m_input_script.SetHorizontalMove(Input.GetAxisRaw(AxisTags.HORIZONTAL_AXIS));
+        m_input_script.SetVerticalMove(Input.GetAxisRaw(AxisTags.VERTICAL_AXIS));
     }
 }
