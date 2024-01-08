@@ -296,16 +296,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6822950098761795498}
     m_Modifications:
-    - target: {fileID: 204342588413630587, guid: a30a6271e2bbdbb488494cab60bbfa17,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 807111803388092109, guid: a30a6271e2bbdbb488494cab60bbfa17,
-        type: 3}
-      propertyPath: _rigidbody
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1504191946354553221, guid: a30a6271e2bbdbb488494cab60bbfa17,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -361,25 +351,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 4622606773556776435, guid: a30a6271e2bbdbb488494cab60bbfa17,
-        type: 3}
-      propertyPath: m_movement
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7078107864880401972, guid: a30a6271e2bbdbb488494cab60bbfa17,
         type: 3}
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: 35b8aa2eaa64f8944930991ba431eb4e, type: 3}
-    - target: {fileID: 8240794652528735260, guid: a30a6271e2bbdbb488494cab60bbfa17,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5493025974364660952, guid: a30a6271e2bbdbb488494cab60bbfa17, type: 3}
-    - {fileID: 2745126564464137839, guid: a30a6271e2bbdbb488494cab60bbfa17, type: 3}
-    - {fileID: 807111803388092109, guid: a30a6271e2bbdbb488494cab60bbfa17, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 211244822636860566, guid: a30a6271e2bbdbb488494cab60bbfa17,
@@ -2642,11 +2619,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6822950098761795498}
     m_Modifications:
-    - target: {fileID: 807111803388092109, guid: a30a6271e2bbdbb488494cab60bbfa17,
-        type: 3}
-      propertyPath: _rigidbody
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1504191946354553221, guid: a30a6271e2bbdbb488494cab60bbfa17,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2702,21 +2674,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4622606773556776435, guid: a30a6271e2bbdbb488494cab60bbfa17,
-        type: 3}
-      propertyPath: m_movement
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7078107864880401972, guid: a30a6271e2bbdbb488494cab60bbfa17,
         type: 3}
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: 1271a5e10016bce4f9c4dd472ca79bdc, type: 3}
-    m_RemovedComponents:
-    - {fileID: 5493025974364660952, guid: a30a6271e2bbdbb488494cab60bbfa17, type: 3}
-    - {fileID: 2745126564464137839, guid: a30a6271e2bbdbb488494cab60bbfa17, type: 3}
-    - {fileID: 807111803388092109, guid: a30a6271e2bbdbb488494cab60bbfa17, type: 3}
-    - {fileID: 6515548869814948370, guid: a30a6271e2bbdbb488494cab60bbfa17, type: 3}
+    - target: {fileID: 7892304933155826059, guid: a30a6271e2bbdbb488494cab60bbfa17,
+        type: 3}
+      propertyPath: m_walk_speed
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 211244822636860566, guid: a30a6271e2bbdbb488494cab60bbfa17,
@@ -6552,7 +6520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_vfx: 0
   m_fl_num: 0
-  FlNum: 0
+  Fl_Num: 0
 --- !u!114 &2096150409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6565,11 +6533,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee79fc62b5fe8d945a16315df6de3354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontal_move: 0
-  vertical_move: 0
-  block: 0
-  jump: 0
-  crouch: 0
   m_character_animation: {fileID: 0}
   m_keyCombos:
   - m_comboName: SpecialAttack1
