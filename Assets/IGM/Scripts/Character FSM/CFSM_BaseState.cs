@@ -17,8 +17,11 @@ public abstract class CFSM_BaseState// : FSM_BaseState
 
 
 
-    protected bool IsOnGround()
+    /*protected bool IsOnGround()
     {
-        return true;
-    }
+        return Physics.CheckSphere(_stateMachine.characterTransform.position,
+                                   0.4f,
+                                   LayerMask.GetMask(Tags.GROUND_TAG),
+                                   QueryTriggerInteraction.Ignore);
+    }*/
 }

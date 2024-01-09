@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 137292444}
   - component: {fileID: 137292443}
   - component: {fileID: 137292442}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Red Zone Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -493,12 +493,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137292440}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 1, z: 0.4}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.555556, y: 0, z: 0}
+  m_LocalScale: {x: 0.11111112, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2137118534}
+  m_Father: {fileID: 1947532101}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &137292442
 MeshCollider:
@@ -572,6 +572,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137292440}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &171171346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 171171347}
+  m_Layer: 0
+  m_Name: Walls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &171171347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171171346}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1314787235}
+  - {fileID: 1510638691}
+  m_Father: {fileID: 2137118534}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &187314131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1426,7 +1459,7 @@ GameObject:
   - component: {fileID: 478332167}
   - component: {fileID: 478332166}
   - component: {fileID: 478332165}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Red Zone Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1441,12 +1474,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478332163}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 1, z: 0.4}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.555556, y: 0, z: 0}
+  m_LocalScale: {x: 0.11111112, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2137118534}
+  m_Father: {fileID: 1947532101}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &478332165
 MeshCollider:
@@ -2681,8 +2714,13 @@ PrefabInstance:
       objectReference: {fileID: 9000000, guid: 1271a5e10016bce4f9c4dd472ca79bdc, type: 3}
     - target: {fileID: 7892304933155826059, guid: a30a6271e2bbdbb488494cab60bbfa17,
         type: 3}
+      propertyPath: m_gravity
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892304933155826059, guid: a30a6271e2bbdbb488494cab60bbfa17,
+        type: 3}
       propertyPath: m_walk_speed
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4355,12 +4393,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314787234}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 5, y: -0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2137118534}
+  m_Father: {fileID: 171171347}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!64 &1314787236
 MeshCollider:
@@ -4835,12 +4873,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510638690}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2137118534}
+  m_Father: {fileID: 171171347}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!64 &1510638692
 MeshCollider:
@@ -6034,7 +6072,7 @@ GameObject:
   - component: {fileID: 1947532100}
   - component: {fileID: 1947532099}
   - component: {fileID: 1947532098}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6125,7 +6163,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 1, z: 0.4}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 478332164}
+  - {fileID: 137292441}
   m_Father: {fileID: 2137118534}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1997985250
@@ -6742,10 +6782,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1947532101}
-  - {fileID: 1314787235}
-  - {fileID: 1510638691}
-  - {fileID: 478332164}
-  - {fileID: 137292441}
+  - {fileID: 171171347}
   m_Father: {fileID: 6822950098761795498}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2137262711

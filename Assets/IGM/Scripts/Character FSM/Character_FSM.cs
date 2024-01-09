@@ -7,7 +7,6 @@ public class Character_FSM// : FinishStateMachine
 	public CharacterController characterController { get; }
     public CharacterAnimation characterAnimation { get; }
     public CharacterInput characterInput { get; }
-	public Transform characterTransform { get; }
 
 	private CFSM_BaseState _currentState { get; set; }
 
@@ -17,12 +16,11 @@ public class Character_FSM// : FinishStateMachine
 
 
 
-	public Character_FSM (CharacterController character_controller, CharacterAnimation character_animation, CharacterInput character_input, Transform character_transform)
+	public Character_FSM (CharacterController character_controller, CharacterAnimation character_animation, CharacterInput character_input)
 	{
 		characterController = character_controller;
 		characterAnimation = character_animation;
 		characterInput = character_input;
-		characterTransform = character_transform;
 	}
 
 

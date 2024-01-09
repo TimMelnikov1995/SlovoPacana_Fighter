@@ -6,6 +6,8 @@ public class CS_InAir : CFSM_BaseState
 
     protected float _velocity = 0f;
 
+    bool _skipFirstFrame = false;
+
 
 
     public CS_InAir(Character_FSM state_machine, float gravity_value) : base(state_machine)
@@ -15,11 +17,41 @@ public class CS_InAir : CFSM_BaseState
 
 
 
+    public override void Enter()
+    {
+        Debug.Log("In Air state: [ENTER]");
+        
+        _skipFirstFrame = true;
+    }
+
     public override void Update()
     {
-        if (IsOnGround())
+        Debug.Log("In Air state: [UPDATE]");
+
+        if (_skipFirstFrame)
+        {
+            _skipFirstFrame = false;
+
+            return;
+        }
+            
+        if (_stateMachine.characterController.isGrounded)//IsOnGround())
+            Land();
 
         _velocity -= _gravityValue * Time.deltaTime;
-        _stateMachine.characterController.Move(_stateMachine.characterTransform.position + new Vector3(0, _velocity, 0));
+        _stateMachine.characterController.Move(new Vector3(0, _velocity, 0)); // _stateMachine.characterTransform.position + 
+    }
+
+
+
+    protected void Land()
+    {
+        //if (_velocity > _gravityValue * 5)
+            //_stateMachine.SetState<CS_Death>();
+        //else
+        //{
+            //_stateMachine.characterAnimation.Land();
+            _stateMachine.SetState<CS_Idle>();
+        //}
     }
 }

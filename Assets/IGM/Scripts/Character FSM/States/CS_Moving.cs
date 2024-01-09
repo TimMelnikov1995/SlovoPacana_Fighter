@@ -13,11 +13,21 @@ public class CS_Moving : CFSM_BaseState
 
 
 
+    public override void Enter()
+    {
+        //Debug.Log("Moving state: [ENTER]");
+    }
+
+    public override void Exit()
+    {
+        //Debug.Log("Moving state: [EXIT]");
+    }
+
     public override void Update()
     {
         Vector2 input_direction = ReadInput();
 
-        if (input_direction.sqrMagnitude != 0)
+        if (input_direction.sqrMagnitude == 0)
             _stateMachine.SetState<CS_Idle>();
 
         if (_stateMachine.characterInput.Jump)
@@ -43,7 +53,7 @@ public class CS_Moving : CFSM_BaseState
 
     protected virtual void Move(Vector2 input_direction)
     {
-        Vector3 moving_direction = _stateMachine.characterTransform.forward * input_direction.x;
+        Vector3 moving_direction = _stateMachine.characterController.transform.forward * input_direction.x;
                                  //+ _characterTransform.right * input_direction.x;
         moving_direction *= _speed * Time.deltaTime;
 

@@ -51,7 +51,7 @@ public class CharacterInput : MonoBehaviour
 
     public void SetVerticalMove(float value)
     {
-        m_character_animation.VerticalMove(value);
+        //m_character_animation.VerticalMove(value);
 
         Jump = false;
         Crouch = false;

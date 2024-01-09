@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 
 public class CFSM_Script : MonoBehaviour
@@ -13,7 +12,7 @@ public class CFSM_Script : MonoBehaviour
     [Min(0)]
 	[SerializeField] float m_walk_speed = 1.0f;
     [Min(0)]
-    [SerializeField] float m_gravity = 3.0f;
+    [SerializeField] float m_gravity = 30.0f;
     //[Space]
     //[SerializeField] InputVariant m_inputVariant;
 
@@ -23,7 +22,7 @@ public class CFSM_Script : MonoBehaviour
 
     void Start()
     {
-        _stateMachine = new Character_FSM(m_character_controller, m_character_animation, m_character_input, transform);
+        _stateMachine = new Character_FSM(m_character_controller, m_character_animation, m_character_input);
 
         _stateMachine.AddState(new CS_Idle(_stateMachine));
         _stateMachine.AddState(new CS_Moving(_stateMachine, m_walk_speed));
