@@ -37,8 +37,8 @@ public class CS_Jumping : CS_InAir
 
     void Jump()
     {
-        Vector3 velocity = new Vector3(0, Mathf.Sqrt(_jumpHeight * _gravityValue * Time.deltaTime), 0);
+        _velocity = Mathf.Sqrt(_jumpHeight * _gravityValue);
 
-        _stateMachine.characterController.Move(velocity);
+        _stateMachine.characterController.Move(Vector3.up * _velocity * Time.deltaTime);
     }
 }

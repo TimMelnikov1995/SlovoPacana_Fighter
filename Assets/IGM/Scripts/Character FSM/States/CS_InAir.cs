@@ -38,8 +38,8 @@ public class CS_InAir : CFSM_BaseState
         if (_stateMachine.characterController.isGrounded)//IsOnGround())
             Land();
 
-        _velocity -= _gravityValue * Time.deltaTime;
-        _stateMachine.characterController.Move(new Vector3(0, _velocity, 0)); // _stateMachine.characterTransform.position + 
+        _velocity += -_gravityValue * Time.deltaTime;
+        _stateMachine.characterController.Move(new Vector3(0, _velocity * Time.deltaTime, 0)); // _stateMachine.characterTransform.position + 
     }
 
 
