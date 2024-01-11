@@ -7,10 +7,9 @@ public class CFSM_Script : MonoBehaviour
     [SerializeField] CharacterAnimation m_character_animation;
     [SerializeField] CharacterInput m_character_input;
     [Space]
+    [SerializeField, Range(0, 20)] float m_jump_height = 1.0f;
     [Min(0)]
-    [SerializeField] float m_jump_height = 0.0f;
-    [Min(0)]
-	[SerializeField] float m_walk_speed = 1.0f;
+	[SerializeField] float m_walk_speed = 2.0f;
     [Min(0)]
     [SerializeField] float m_gravity = 30.0f;
     //[Space]

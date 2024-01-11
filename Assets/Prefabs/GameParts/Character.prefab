@@ -218,8 +218,8 @@ MonoBehaviour:
   m_character_animation: {fileID: 5370055026541075832}
   m_character_input: {fileID: 4622606773556776435}
   m_jump_height: 0
-  m_walk_speed: 1
-  m_gravity: 3
+  m_walk_speed: 2
+  m_gravity: 30
 --- !u!114 &4622606773556776435
 MonoBehaviour:
   m_ObjectHideFlags: 0

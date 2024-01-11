@@ -22,6 +22,7 @@ public class CS_InAir : CFSM_BaseState
         Debug.Log("In Air state: [ENTER]");
         
         _skipFirstFrame = true;
+        _velocity = _stateMachine.characterController.velocity.y;
     }
 
     public override void Update()
