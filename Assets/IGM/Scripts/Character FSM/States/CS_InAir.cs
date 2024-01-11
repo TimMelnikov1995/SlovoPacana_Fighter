@@ -51,7 +51,8 @@ public class CS_InAir : CFSM_BaseState
             //_stateMachine.SetState<CS_Death>();
         //else
         //{
-            //_stateMachine.characterAnimation.Land();
+            _stateMachine.characterAnimation.SetOnFloor(true);
+            _stateMachine.characterAnimation.VerticalMove(0);
             _stateMachine.SetState<CS_Idle>();
         //}
     }

@@ -14,9 +14,14 @@ public class CharacterAnimation : MonoBehaviour
 
     public void HorizontalMove(float movement) { _animator.SetFloat(AnimationTags.HORIZONTAL_MOVEMENT, movement); }
 
-    public void VerticalMove(float movement) { _animator.SetFloat(AnimationTags.VERTICAL_MOVEMENT, movement); }
+    public void VerticalMove(int movement) { _animator.SetInteger(AnimationTags.VERTICAL_MOVEMENT, movement); }
 
     public void Rotate(float rotation) { _animator.SetFloat(AnimationTags.ROTATION, rotation); }
+
+    public void SetOnFloor(bool state)
+    {
+        _animator.SetBool(Tags.ON_FLOOR_TAG, state);
+    }
 
     public void Hit()
     {

@@ -40,5 +40,7 @@ public class CS_Jumping : CS_InAir
         _velocity = Mathf.Sqrt(_jumpHeight * _gravityValue);
 
         _stateMachine.characterController.Move(Vector3.up * _velocity * Time.deltaTime);
+        _stateMachine.characterAnimation.VerticalMove(1);
+        _stateMachine.characterAnimation.SetOnFloor(false);
     }
 }
