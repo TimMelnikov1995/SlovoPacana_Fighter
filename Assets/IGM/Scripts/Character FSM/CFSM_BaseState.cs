@@ -1,10 +1,19 @@
+using UnityEngine;
+
 public abstract class CFSM_BaseState// : FSM_BaseState
 {
 	protected readonly Character_FSM _stateMachine;
+    protected Transition[] _transitions;
 
 
 
-	public CFSM_BaseState(Character_FSM state_machine)
+    protected CharacterController _controller => _stateMachine.characterScript.CharController;
+    protected CharacterAnimation _animation => _stateMachine.characterScript.CharAnimation;
+    protected CharacterInput _input => _stateMachine.characterScript.CharInput;
+
+
+
+    public CFSM_BaseState(Character_FSM state_machine)
     {
         _stateMachine = state_machine;
     }
@@ -13,15 +22,17 @@ public abstract class CFSM_BaseState// : FSM_BaseState
 
     public virtual void Update() { }
 
+    public virtual void FixedUpdate() { }
+
     public virtual void Exit() { }
 
 
 
-    /*protected bool IsOnGround()
+    protected bool IsOnGround()
     {
-        return Physics.CheckSphere(_stateMachine.characterTransform.position,
+        return Physics.CheckSphere(_controller.transform.position,
                                    0.4f,
                                    LayerMask.GetMask(Tags.GROUND_TAG),
                                    QueryTriggerInteraction.Ignore);
-    }*/
+    }
 }

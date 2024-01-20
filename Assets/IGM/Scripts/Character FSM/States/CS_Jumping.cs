@@ -6,9 +6,9 @@ public class CS_Jumping : CS_InAir
 
     public CS_Jumping(Character_FSM state_machine, float gravity_value, float jump_height) : base(state_machine, gravity_value)
     {
-        _jumpHeight = Mathf.Log(jump_height); // сменить на другую функцию
+        _jumpHeight = jump_height; // сменить на другую функцию
 
-        _stateMachine.AddState(new CS_InAir (state_machine, gravity_value));
+        _stateMachine.AddState(new CS_InAir(state_machine, gravity_value));
     }
 
 
@@ -17,7 +17,7 @@ public class CS_Jumping : CS_InAir
     {
         Debug.Log("Jump state: [ENTER]");
 
-        if (_stateMachine.characterController.isGrounded)//!IsOnGround())
+        if (IsOnGround())
             Jump();
 
         _stateMachine.SetState<CS_InAir>();
@@ -39,8 +39,9 @@ public class CS_Jumping : CS_InAir
     {
         _velocity = Mathf.Sqrt(_jumpHeight * _gravityValue);
 
-        _stateMachine.characterController.Move(Vector3.up * _velocity * Time.deltaTime);
-        _stateMachine.characterAnimation.VerticalMove(1);
-        _stateMachine.characterAnimation.SetOnFloor(false);
+        _controller.Move(Vector3.up * _velocity);// * Time.fixedDeltaTime);
+        //_animation.VerticalMove(1);
+        _animation.Jump();
+        //_animation.SetOnFloor(false);
     }
 }

@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Character_FSM// : FinishStateMachine
 {
-	public CharacterController characterController { get; }
-    public CharacterAnimation characterAnimation { get; }
-    public CharacterInput characterInput { get; }
+    public CFSM_Script characterScript { get; }
 
-	private CFSM_BaseState _currentState { get; set; }
+    private CFSM_BaseState _currentState { get; set; }
 
 	private Dictionary<Type, CFSM_BaseState> _states = new ();
 
@@ -16,11 +14,9 @@ public class Character_FSM// : FinishStateMachine
 
 
 
-	public Character_FSM (CharacterController character_controller, CharacterAnimation character_animation, CharacterInput character_input)
+	public Character_FSM(CFSM_Script script)
 	{
-		characterController = character_controller;
-		characterAnimation = character_animation;
-		characterInput = character_input;
+        characterScript = script;
 	}
 
 
@@ -52,5 +48,10 @@ public class Character_FSM// : FinishStateMachine
 	public void Update()
 	{
 		_currentState?.Update();
+	}
+
+	public void FixedUpdate()
+	{
+		_currentState?.FixedUpdate();
 	}
 }

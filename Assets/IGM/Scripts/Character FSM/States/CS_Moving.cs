@@ -9,6 +9,14 @@ public class CS_Moving : CFSM_BaseState
     public CS_Moving(Character_FSM state_machine, float speed) : base(state_machine)
     {
         _speed = speed;
+
+        _transitions = new Transition[]
+        {
+            //new ToIdle(_input, _stateMachine),
+            new ToJumping(_input, _stateMachine),
+            //new ToCrouching(_input, _stateMachine),
+            //new ToRunning(_input, _stateMachine)
+        };
     }
 
 
@@ -30,7 +38,7 @@ public class CS_Moving : CFSM_BaseState
         if (input_direction.sqrMagnitude == 0)
             _stateMachine.SetState<CS_Idle>();
 
-        if (_stateMachine.characterInput.Jump)
+        if (_input.Jump)
             _stateMachine.SetState<CS_Jumping>();
 
         //if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -43,20 +51,20 @@ public class CS_Moving : CFSM_BaseState
 
     protected Vector2 ReadInput()
     {
-        float horizontal = _stateMachine.characterInput.Horizontal_Move;
+        float horizontal = _input.Horizontal_Move;
         //float vertical = PlayerInput.vertical_move;
 
-        return new Vector2(horizontal, 0);
+        return new Vector2(horizontal, 0f);
     }
 
 
 
     protected virtual void Move(Vector2 input_direction)
     {
-        Vector3 moving_direction = _stateMachine.characterController.transform.forward * input_direction.x;
+        Vector3 moving_direction = _controller.transform.forward * input_direction.x;
                                  //+ _characterTransform.right * input_direction.x;
         moving_direction *= _speed * Time.deltaTime;
 
-        _stateMachine.characterController.Move(moving_direction);
+        _controller.Move(moving_direction);
     }
 }

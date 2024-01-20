@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
+  m_AmbientEquatorColor: {r: 0, g: 0, b: 0, a: 1}
+  m_AmbientGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -32,13 +32,13 @@ RenderSettings:
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
-  m_DefaultReflectionMode: 0
+  m_DefaultReflectionMode: 1
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_Sun: {fileID: 410087040}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -494,8 +494,8 @@ Transform:
   m_GameObject: {fileID: 137292440}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.555556, y: 0, z: 0}
-  m_LocalScale: {x: 0.11111112, y: 1, z: 1}
+  m_LocalPosition: {x: -5.5, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1947532101}
@@ -1475,8 +1475,8 @@ Transform:
   m_GameObject: {fileID: 478332163}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.555556, y: 0, z: 0}
-  m_LocalScale: {x: 0.11111112, y: 1, z: 1}
+  m_LocalPosition: {x: 5.5, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1947532101}
@@ -2710,12 +2710,17 @@ PrefabInstance:
     - target: {fileID: 1989077709249551624, guid: a30a6271e2bbdbb488494cab60bbfa17,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3269049662474864739, guid: a30a6271e2bbdbb488494cab60bbfa17,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5771081643239662804, guid: a30a6271e2bbdbb488494cab60bbfa17,
+        type: 3}
+      propertyPath: m_Height
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 7078107864880401972, guid: a30a6271e2bbdbb488494cab60bbfa17,
         type: 3}
@@ -2725,12 +2730,12 @@ PrefabInstance:
     - target: {fileID: 7892304933155826059, guid: a30a6271e2bbdbb488494cab60bbfa17,
         type: 3}
       propertyPath: m_gravity
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7892304933155826059, guid: a30a6271e2bbdbb488494cab60bbfa17,
         type: 3}
       propertyPath: m_jump_height
-      value: 20
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6806,7 +6811,7 @@ PrefabInstance:
     - target: {fileID: 1641162887259451369, guid: 1cc563d31e4774a4b8cb5c7ec51e08a4,
         type: 3}
       propertyPath: _smoothSpeed
-      value: 0.02
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1641162887259451369, guid: 1cc563d31e4774a4b8cb5c7ec51e08a4,
         type: 3}

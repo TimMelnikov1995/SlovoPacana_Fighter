@@ -19,15 +19,15 @@ public class CS_InAir : CFSM_BaseState
 
     public override void Enter()
     {
-        Debug.Log("In Air state: [ENTER]");
+        //Debug.Log("In Air state: [ENTER]");
         
         _skipFirstFrame = true;
-        _velocity = _stateMachine.characterController.velocity.y;
+        _velocity = _controller.velocity.y;
     }
 
-    public override void Update()
+    public override void FixedUpdate()
     {
-        Debug.Log("In Air state: [UPDATE]");
+        Debug.Log("In Air state: [FIXED UPDATE]");
 
         if (_skipFirstFrame)
         {
@@ -35,12 +35,12 @@ public class CS_InAir : CFSM_BaseState
 
             return;
         }
-            
-        if (_stateMachine.characterController.isGrounded)//IsOnGround())
+
+        if (_controller.isGrounded)//IsOnGround())
             Land();
 
-        _velocity += -_gravityValue * Time.deltaTime;
-        _stateMachine.characterController.Move(new Vector3(0, _velocity * Time.deltaTime, 0)); // _stateMachine.characterTransform.position + 
+        _velocity -= _gravityValue * Mathf.Pow(Time.fixedDeltaTime, 2);
+        _controller.Move(new Vector3(0, _velocity, 0)); // _stateMachine.characterTransform.position + 
     }
 
 
@@ -51,9 +51,11 @@ public class CS_InAir : CFSM_BaseState
             //_stateMachine.SetState<CS_Death>();
         //else
         //{
-            _stateMachine.characterAnimation.SetOnFloor(true);
-            _stateMachine.characterAnimation.VerticalMove(0);
+            //_animation.SetOnFloor(true);
+            //_animation.VerticalMove(0);
+            _animation.Land();
             _stateMachine.SetState<CS_Idle>();
+            _velocity = 0f;
         //}
     }
 }

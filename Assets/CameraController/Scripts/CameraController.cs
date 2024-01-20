@@ -5,27 +5,39 @@ public class CameraController : MonoBehaviour
     [SerializeField] Transform _playerTransform,
                                _targetTransform;
     [Space]
-    [SerializeField] Camera _mainCamera;
-    [SerializeField] float _smoothSpeed = 0.05f;
-    [Space]
+    //[SerializeField] Camera _mainCamera;
+    [SerializeField] float _smoothSpeed = 5f;
+    //[Space]
     [SerializeField] float _minDesiredDistanceTogether = 5;
     [SerializeField] float _minDesiredDistanceAlone = 10;
     [SerializeField] float _distanceOffset = 2;
 
+    Transform _cameraTransform;
     Mesh _cameraMesh;
 
+    //private Transform CameraTransform => _mainCamera.transform;
 
+
+
+    void Awake()
+    {
+        if (_cameraTransform == null)
+            _cameraTransform = transform.GetComponentInChildren<Camera>().transform;
+    }
 
     void OnDrawGizmos()
     {
+        if (_cameraTransform == null)
+            _cameraTransform = transform.GetComponentInChildren<Camera>().transform;
+
         if (_cameraMesh == null)
             _cameraMesh = Resources.Load<Mesh>("Meshes/camera");
 
         Gizmos.color = Color.white;
 
         Gizmos.DrawSphere(gameObject.transform.position, 0.4f);
-        Gizmos.DrawLine(gameObject.transform.position, _mainCamera.transform.position);
-        Gizmos.DrawMesh(_cameraMesh, _mainCamera.transform.position, _mainCamera.transform.rotation, new Vector3(0.4f, 0.4f, 0.4f));
+        Gizmos.DrawLine(gameObject.transform.position, _cameraTransform.position);
+        Gizmos.DrawMesh(_cameraMesh, _cameraTransform.position, _cameraTransform.rotation, new Vector3(0.4f, 0.4f, 0.4f));
 
         if (_playerTransform != null)
         {
@@ -44,6 +56,12 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
+        float speed = _smoothSpeed * Time.deltaTime;
+
+        _cameraTransform.localRotation = Quaternion.Slerp(_cameraTransform.localRotation,
+                                                               new Quaternion(0, 0, 0, 1),
+                                                               speed);
+
         if (_playerTransform != null)
         {
             Vector3 target = _playerTransform.position,
@@ -57,8 +75,8 @@ public class CameraController : MonoBehaviour
                 offset = GetCameraDistance(distance);
             }
 
-            transform.position = Vector3.Lerp(transform.position, target, _smoothSpeed);
-            _mainCamera.transform.localPosition = Vector3.Lerp(_mainCamera.transform.localPosition, offset, _smoothSpeed);
+            transform.position = Vector3.Lerp(transform.position, target, speed);
+            _cameraTransform.localPosition = Vector3.Lerp(_cameraTransform.localPosition, offset, speed);
         }
     }
 
