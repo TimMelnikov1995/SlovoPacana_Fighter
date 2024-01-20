@@ -3,12 +3,14 @@ using UnityEngine;
 public class CS_Jumping : CS_InAir
 {
     protected readonly float _jumpHeight;
+    protected readonly float _gravityValue;
 
-    public CS_Jumping(Character_FSM state_machine, float gravity_value, float jump_height) : base(state_machine, gravity_value)
+    public CS_Jumping(Character_FSM state_machine, float gravity_value, float jump_height) : base(state_machine)
     {
+        _gravityValue = gravity_value;
         _jumpHeight = jump_height; // сменить на другую функцию
 
-        _stateMachine.AddState(new CS_InAir(state_machine, gravity_value));
+        _stateMachine.AddState(new CS_InAir(state_machine));
     }
 
 
@@ -17,8 +19,11 @@ public class CS_Jumping : CS_InAir
     {
         Debug.Log("Jump state: [ENTER]");
 
-        if (IsOnGround())
-            Jump();
+        if (_stateMachine.characterScript.IsOnGround())
+        {
+            _stateMachine.characterScript.Jump();
+            _animation.Jump();
+        }
 
         _stateMachine.SetState<CS_InAir>();
     }
@@ -35,13 +40,13 @@ public class CS_Jumping : CS_InAir
 
 
 
-    void Jump()
+    /*void Jump()
     {
-        _velocity = Mathf.Sqrt(_jumpHeight * _gravityValue);
+        float velocity = Mathf.Sqrt(_jumpHeight * _gravityValue);
 
-        _controller.Move(Vector3.up * _velocity);// * Time.fixedDeltaTime);
+        _controller.Move(Vector3.up * velocity);// * Time.fixedDeltaTime);
         //_animation.VerticalMove(1);
         _animation.Jump();
         //_animation.SetOnFloor(false);
-    }
+    }*/
 }

@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class CS_InAir : CFSM_BaseState
 {
-    protected readonly float _gravityValue;
+    //protected readonly float _gravityValue;
 
-    protected float _velocity = 0f;
+    //protected float _velocity = 0f;
 
     bool _skipFirstFrame = false;
 
 
 
-    public CS_InAir(Character_FSM state_machine, float gravity_value) : base(state_machine)
+    public CS_InAir(Character_FSM state_machine) : base(state_machine)
     {
-        _gravityValue = gravity_value;
+        //_gravityValue = gravity_value;
     }
 
 
@@ -22,12 +22,12 @@ public class CS_InAir : CFSM_BaseState
         //Debug.Log("In Air state: [ENTER]");
         
         _skipFirstFrame = true;
-        _velocity = _controller.velocity.y;
+        //_velocity = _controller.velocity.y;
     }
 
-    public override void FixedUpdate()
+    public override void Update()
     {
-        Debug.Log("In Air state: [FIXED UPDATE]");
+        Debug.Log("In Air state: [UPDATE]");
 
         if (_skipFirstFrame)
         {
@@ -36,11 +36,13 @@ public class CS_InAir : CFSM_BaseState
             return;
         }
 
-        if (_controller.isGrounded)//IsOnGround())
+        //Debug.Log("On floor: " + _stateMachine.characterScript.IsOnGround());
+
+        if (_stateMachine.characterScript.IsOnGround())
             Land();
 
-        _velocity -= _gravityValue * Mathf.Pow(Time.fixedDeltaTime, 2);
-        _controller.Move(new Vector3(0, _velocity, 0)); // _stateMachine.characterTransform.position + 
+        //_velocity -= _gravityValue * Mathf.Pow(Time.deltaTime, 2);
+        //_controller.Move(new Vector3(0, _velocity, 0)); // _stateMachine.characterTransform.position + 
     }
 
 
@@ -55,7 +57,6 @@ public class CS_InAir : CFSM_BaseState
             //_animation.VerticalMove(0);
             _animation.Land();
             _stateMachine.SetState<CS_Idle>();
-            _velocity = 0f;
         //}
     }
 }

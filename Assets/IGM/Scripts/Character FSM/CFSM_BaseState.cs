@@ -25,14 +25,4 @@ public abstract class CFSM_BaseState// : FSM_BaseState
     public virtual void FixedUpdate() { }
 
     public virtual void Exit() { }
-
-
-
-    protected bool IsOnGround()
-    {
-        return Physics.CheckSphere(_controller.transform.position,
-                                   0.4f,
-                                   LayerMask.GetMask(Tags.GROUND_TAG),
-                                   QueryTriggerInteraction.Ignore);
-    }
 }

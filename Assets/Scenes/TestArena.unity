@@ -2730,12 +2730,12 @@ PrefabInstance:
     - target: {fileID: 7892304933155826059, guid: a30a6271e2bbdbb488494cab60bbfa17,
         type: 3}
       propertyPath: m_gravity
-      value: 40
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7892304933155826059, guid: a30a6271e2bbdbb488494cab60bbfa17,
         type: 3}
       propertyPath: m_jump_height
-      value: 1.5
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

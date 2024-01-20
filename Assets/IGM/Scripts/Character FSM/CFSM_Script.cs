@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 public class CFSM_Script : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class CFSM_Script : MonoBehaviour
     //[SerializeField] InputVariant m_inputVariant;
 
 	Character_FSM _stateMachine;
+    float _velocity = 0f;
 
 
 
@@ -38,11 +40,41 @@ public class CFSM_Script : MonoBehaviour
 
     void Update()
     {
+        if (CharController.isGrounded)
+            _velocity = 0f;
+        else
+        {
+            _velocity -= m_gravity * Mathf.Pow(Time.deltaTime, 2);
+            CharController.Move(new Vector3(0, _velocity, 0));
+        }
+
         _stateMachine.Update();
     }
 
     void FixedUpdate()
     {
         _stateMachine.FixedUpdate();
+    }
+
+
+
+    public bool IsOnGround()
+    {
+        return Physics.CheckSphere(CharController.transform.position,
+                                   0.4f,
+                                   LayerMask.GetMask(Tags.GROUND_TAG),
+                                   QueryTriggerInteraction.Ignore);
+    }
+
+
+
+    public void Jump()
+    {
+        _velocity = Mathf.Sqrt(m_jump_height * m_gravity * Time.deltaTime);
+
+        CharController.Move(Vector3.up * _velocity);// * Time.fixedDeltaTime);
+        //_animation.VerticalMove(1);
+        //_animation.Jump();
+        //_animation.SetOnFloor(false);
     }
 }

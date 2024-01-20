@@ -45,7 +45,7 @@ public class CS_Idle : CFSM_BaseState
 
     public override void FixedUpdate()
     {
-        if (!IsOnGround())
+        if (!_stateMachine.characterScript.IsOnGround())
             _stateMachine.SetState<CS_InAir>();
     }
 
