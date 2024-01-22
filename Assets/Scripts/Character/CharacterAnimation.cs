@@ -45,9 +45,14 @@ public class CharacterAnimation : MonoBehaviour
         _animator.CrossFade("Jump Start", 0.1f);
     }
 
+    public void Fall()
+    {
+        _animator.CrossFade("Jump", 0.1f);
+    }
+
     public void Land()
     {
-        _animator.CrossFade("Jump End", 0.1f, 0);
+        _animator.CrossFade("Jump End", 0.1f);
     }
 
     public void SetAnimationBoolByName(string bool_name, bool state)

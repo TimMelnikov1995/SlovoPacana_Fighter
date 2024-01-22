@@ -6,7 +6,7 @@ public class CS_InAir : CFSM_BaseState
 
     //protected float _velocity = 0f;
 
-    bool _skipFirstFrame = false;
+    //bool _skipFirstFrame = false;
 
 
 
@@ -20,25 +20,27 @@ public class CS_InAir : CFSM_BaseState
     public override void Enter()
     {
         //Debug.Log("In Air state: [ENTER]");
+
+        _animation.Fall();
         
-        _skipFirstFrame = true;
+        //_skipFirstFrame = true;
         //_velocity = _controller.velocity.y;
     }
 
     public override void Update()
     {
-        Debug.Log("In Air state: [UPDATE]");
+        //Debug.Log("In Air state: [UPDATE]");
 
-        if (_skipFirstFrame)
-        {
-            _skipFirstFrame = false;
+        //if (_skipFirstFrame)
+        //{
+            //_skipFirstFrame = false;
 
-            return;
-        }
+            //return;
+        //}
 
         //Debug.Log("On floor: " + _stateMachine.characterScript.IsOnGround());
 
-        if (_stateMachine.characterScript.IsOnGround())
+        if (_script.IsOnGround())
             Land();
 
         //_velocity -= _gravityValue * Mathf.Pow(Time.deltaTime, 2);

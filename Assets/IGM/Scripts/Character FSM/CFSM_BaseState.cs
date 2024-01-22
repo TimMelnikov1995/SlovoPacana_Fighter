@@ -10,6 +10,7 @@ public abstract class CFSM_BaseState// : FSM_BaseState
     protected CharacterController _controller => _stateMachine.characterScript.CharController;
     protected CharacterAnimation _animation => _stateMachine.characterScript.CharAnimation;
     protected CharacterInput _input => _stateMachine.characterScript.CharInput;
+    protected CFSM_Script _script => _stateMachine.characterScript;
 
 
 

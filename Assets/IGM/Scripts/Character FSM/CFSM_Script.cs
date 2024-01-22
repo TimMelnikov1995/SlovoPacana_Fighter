@@ -1,5 +1,5 @@
+using System;
 using UnityEngine;
-using UnityEngine.InputSystem.XR;
 
 public class CFSM_Script : MonoBehaviour
 {
@@ -17,7 +17,9 @@ public class CFSM_Script : MonoBehaviour
     //[SerializeField] InputVariant m_inputVariant;
 
 	Character_FSM _stateMachine;
-    float _velocity = 0f;
+    [SerializeReference] float _velocity = 0f;
+
+    Int16 m_index = 0;
 
 
 
@@ -33,7 +35,7 @@ public class CFSM_Script : MonoBehaviour
 
         _stateMachine.AddState(new CS_Idle(_stateMachine));
         _stateMachine.AddState(new CS_Moving(_stateMachine, m_walk_speed));
-        _stateMachine.AddState(new CS_Jumping(_stateMachine, m_gravity, m_jump_height));
+        _stateMachine.AddState(new CS_Jumping(_stateMachine)); // , m_gravity, m_jump_height
 
         _stateMachine.SetState<CS_Idle>();
     }
@@ -44,8 +46,8 @@ public class CFSM_Script : MonoBehaviour
             _velocity = 0f;
         else
         {
-            _velocity -= m_gravity * Mathf.Pow(Time.deltaTime, 2);
-            CharController.Move(new Vector3(0, _velocity, 0));
+            _velocity -= Mathf.Pow(m_gravity, 2) * Time.deltaTime; //Mathf.Pow(Time.deltaTime, 2);
+            Move();
         }
 
         _stateMachine.Update();
@@ -60,21 +62,22 @@ public class CFSM_Script : MonoBehaviour
 
     public bool IsOnGround()
     {
-        return Physics.CheckSphere(CharController.transform.position,
+        return Physics.CheckSphere(m_character_controller.transform.position,
                                    0.4f,
                                    LayerMask.GetMask(Tags.GROUND_TAG),
                                    QueryTriggerInteraction.Ignore);
     }
 
-
-
     public void Jump()
     {
-        _velocity = Mathf.Sqrt(m_jump_height * m_gravity * Time.deltaTime);
+        _velocity = m_jump_height; //Mathf.Sqrt(m_jump_height); // * m_gravity * Time.deltaTime);
+        Move(); // * Time.deltaTime);
 
-        CharController.Move(Vector3.up * _velocity);// * Time.fixedDeltaTime);
-        //_animation.VerticalMove(1);
-        //_animation.Jump();
-        //_animation.SetOnFloor(false);
+        Debug.Log(CharController.velocity);
+    }
+
+    void Move()
+    {
+        CharController.Move((Vector3.up * _velocity));
     }
 }

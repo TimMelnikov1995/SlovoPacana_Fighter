@@ -2,13 +2,15 @@ using UnityEngine;
 
 public class CS_Jumping : CS_InAir
 {
-    protected readonly float _jumpHeight;
-    protected readonly float _gravityValue;
+    //protected readonly float _jumpHeight;
+    //protected readonly float _gravityValue;
 
-    public CS_Jumping(Character_FSM state_machine, float gravity_value, float jump_height) : base(state_machine)
+
+
+    public CS_Jumping(Character_FSM state_machine/*, float gravity_value, float jump_height*/) : base(state_machine)
     {
-        _gravityValue = gravity_value;
-        _jumpHeight = jump_height; // сменить на другую функцию
+        //_gravityValue = gravity_value;
+        //_jumpHeight = jump_height; // сменить на другую функцию
 
         _stateMachine.AddState(new CS_InAir(state_machine));
     }
@@ -17,11 +19,11 @@ public class CS_Jumping : CS_InAir
 
     public override void Enter()
     {
-        Debug.Log("Jump state: [ENTER]");
+        //Debug.Log("Jump state: [ENTER]");
 
-        if (_stateMachine.characterScript.IsOnGround())
+        if (_script.IsOnGround())
         {
-            _stateMachine.characterScript.Jump();
+            _script.Jump();
             _animation.Jump();
         }
 

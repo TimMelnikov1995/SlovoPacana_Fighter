@@ -52,7 +52,7 @@ public class CS_Moving : CFSM_BaseState
     protected Vector2 ReadInput()
     {
         float horizontal = _input.Horizontal_Move;
-        //float vertical = PlayerInput.vertical_move;
+        //float vertical = _input.Vertical_Move;
 
         return new Vector2(horizontal, 0f);
     }
