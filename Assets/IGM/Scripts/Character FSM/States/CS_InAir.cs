@@ -1,50 +1,22 @@
 using UnityEngine;
 
-public class CS_InAir : CFSM_BaseState
+public class CS_InAir : CS_Moving
 {
-    //protected readonly float _gravityValue;
-
-    //protected float _velocity = 0f;
-
-    //bool _skipFirstFrame = false;
+    public CS_InAir(Character_FSM state_machine, float speed) : base(state_machine, speed) { }
 
 
 
-    public CS_InAir(Character_FSM state_machine) : base(state_machine)
-    {
-        //_gravityValue = gravity_value;
-    }
-
-
-
-    public override void Enter()
-    {
-        //Debug.Log("In Air state: [ENTER]");
-
-        _animation.Fall();
-        
-        //_skipFirstFrame = true;
-        //_velocity = _controller.velocity.y;
-    }
+    public override void Enter() { _animation.Fall(); }
 
     public override void Update()
     {
-        //Debug.Log("In Air state: [UPDATE]");
-
-        //if (_skipFirstFrame)
-        //{
-            //_skipFirstFrame = false;
-
-            //return;
-        //}
-
-        //Debug.Log("On floor: " + _stateMachine.characterScript.IsOnGround());
-
         if (_script.IsOnGround())
             Land();
 
-        //_velocity -= _gravityValue * Mathf.Pow(Time.deltaTime, 2);
-        //_controller.Move(new Vector3(0, _velocity, 0)); // _stateMachine.characterTransform.position + 
+        Vector2 input_direction = ReadInput();
+
+        if (input_direction.sqrMagnitude != 0)
+            Move(input_direction);
     }
 
 

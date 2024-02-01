@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using UnityEngine;
-
 public class CS_Idle : CFSM_BaseState
 {
     public CS_Idle(Character_FSM state_machine) : base(state_machine)

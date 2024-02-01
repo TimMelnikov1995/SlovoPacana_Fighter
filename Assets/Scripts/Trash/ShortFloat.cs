@@ -1,4 +1,3 @@
-using System.Globalization;
 using System;
 
 public readonly struct ShortFloat : IComparable, IFormattable

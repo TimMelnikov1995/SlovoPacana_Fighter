@@ -21,15 +21,9 @@ public class CS_Moving : CFSM_BaseState
 
 
 
-    public override void Enter()
-    {
-        //Debug.Log("Moving state: [ENTER]");
-    }
+    public override void Enter() { }
 
-    public override void Exit()
-    {
-        //Debug.Log("Moving state: [EXIT]");
-    }
+    public override void Exit() { }
 
     public override void Update()
     {

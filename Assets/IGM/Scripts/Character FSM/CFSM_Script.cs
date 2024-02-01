@@ -18,8 +18,7 @@ public class CFSM_Script : MonoBehaviour
 
 	Character_FSM _stateMachine;
     [SerializeReference] float _velocity = 0f;
-
-    Int16 m_index = 0;
+    Vector2 _lastMovement;
 
 
 
@@ -35,7 +34,7 @@ public class CFSM_Script : MonoBehaviour
 
         _stateMachine.AddState(new CS_Idle(_stateMachine));
         _stateMachine.AddState(new CS_Moving(_stateMachine, m_walk_speed));
-        _stateMachine.AddState(new CS_Jumping(_stateMachine)); // , m_gravity, m_jump_height
+        _stateMachine.AddState(new CS_Jumping(_stateMachine, m_walk_speed)); // , m_gravity, m_jump_height
 
         _stateMachine.SetState<CS_Idle>();
     }
@@ -68,6 +67,11 @@ public class CFSM_Script : MonoBehaviour
                                    QueryTriggerInteraction.Ignore);
     }
 
+    public void SetLastSpeed(Vector2 movement)
+    {
+        _lastMovement = movement;
+    }
+
     public void Jump()
     {
         _velocity = m_jump_height; //Mathf.Sqrt(m_jump_height); // * m_gravity * Time.deltaTime);
@@ -75,6 +79,8 @@ public class CFSM_Script : MonoBehaviour
 
         Debug.Log(CharController.velocity);
     }
+
+
 
     void Move()
     {

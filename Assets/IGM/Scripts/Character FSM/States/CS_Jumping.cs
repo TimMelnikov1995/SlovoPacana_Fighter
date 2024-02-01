@@ -7,12 +7,12 @@ public class CS_Jumping : CS_InAir
 
 
 
-    public CS_Jumping(Character_FSM state_machine/*, float gravity_value, float jump_height*/) : base(state_machine)
+    public CS_Jumping(Character_FSM state_machine, float speed/*, float gravity_value, float jump_height*/) : base(state_machine, speed)
     {
         //_gravityValue = gravity_value;
         //_jumpHeight = jump_height; // сменить на другую функцию
 
-        _stateMachine.AddState(new CS_InAir(state_machine));
+        _stateMachine.AddState(new CS_InAir(state_machine, speed));
     }
 
 
