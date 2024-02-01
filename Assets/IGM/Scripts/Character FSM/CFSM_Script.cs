@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CFSM_Script : MonoBehaviour
@@ -13,10 +14,11 @@ public class CFSM_Script : MonoBehaviour
 	[SerializeField] float m_walk_speed = 2.0f;
     [Min(0)]
     [SerializeField] float m_gravity = 30.0f;
-    //[Space]
+    [Space]
+    [SerializeField] List<CFSM_BaseState> m_character_states;
     //[SerializeField] InputVariant m_inputVariant;
 
-	Character_FSM _stateMachine;
+    Character_FSM _stateMachine;
     [SerializeReference] float _velocity = 0f;
     Vector2 _lastMovement;
 
@@ -35,6 +37,8 @@ public class CFSM_Script : MonoBehaviour
         _stateMachine.AddState(new CS_Idle(_stateMachine));
         _stateMachine.AddState(new CS_Moving(_stateMachine, m_walk_speed));
         _stateMachine.AddState(new CS_Jumping(_stateMachine, m_walk_speed)); // , m_gravity, m_jump_height
+
+        //_stateMachine.AddStateList(m_character_states);
 
         _stateMachine.SetState<CS_Idle>();
     }
