@@ -26,6 +26,12 @@ public class Character_FSM// : FinishStateMachine
 		_states.Add(state.GetType(), state);
 	}
 
+	public void AddStateList(List<CFSM_BaseState> state_list)
+    {
+        foreach (var state in state_list)
+            _states.Add(state.GetType(), state);
+    }
+
 	public void SetState<T>() where T : CFSM_BaseState
 	{
 		var type = typeof(T);
