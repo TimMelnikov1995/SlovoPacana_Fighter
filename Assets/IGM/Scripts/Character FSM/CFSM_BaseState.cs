@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 
-public abstract class CFSM_BaseState// : FSM_BaseState
+[Serializable]
+public class CFSM_BaseState// : FSM_BaseState
 {
 	protected readonly Character_FSM _stateMachine;
     protected Transition[] _transitions;

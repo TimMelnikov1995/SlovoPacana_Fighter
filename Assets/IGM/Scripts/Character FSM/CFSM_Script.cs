@@ -15,11 +15,11 @@ public class CFSM_Script : MonoBehaviour
     [Min(0)]
     [SerializeField] float m_gravity = 30.0f;
     [Space]
-    [SerializeField] List<CFSM_BaseState> m_character_states;
+    //[SerializeField] List<CFSM_BaseState> m_character_states = new List<CFSM_BaseState>();
     //[SerializeField] InputVariant m_inputVariant;
 
     Character_FSM _stateMachine;
-    [SerializeReference] float _velocity = 0f;
+    float _velocity = 0f;
     Vector2 _lastMovement;
 
 
@@ -90,4 +90,10 @@ public class CFSM_Script : MonoBehaviour
     {
         CharController.Move((Vector3.up * _velocity));
     }
+
+    /*[ContextMenu("SomeMethod")]
+    void SomeMethod()
+    {
+        m_character_states.Add(new CS_Attacking(_stateMachine));
+    }*/
 }
