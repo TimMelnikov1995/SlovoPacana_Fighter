@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CS_Moving : CFSM_BaseState
@@ -36,7 +37,7 @@ public class CS_Moving : CFSM_BaseState
             _stateMachine.SetState<CS_Jumping>();
 
         //if (Input.GetKeyDown(KeyCode.LeftShift))
-            //_stateMachine.SetState<CS_Running>();
+        //_stateMachine.SetState<CS_Running>();
 
         Move(input_direction);
     }
@@ -56,9 +57,15 @@ public class CS_Moving : CFSM_BaseState
     protected virtual void Move(Vector2 input_direction)
     {
         Vector3 moving_direction = _controller.transform.forward * input_direction.x;
-                                 //+ _characterTransform.right * input_direction.x;
+        //+ _characterTransform.right * input_direction.x;
         moving_direction *= _speed * Time.deltaTime;
 
         _controller.Move(moving_direction);
     }
+}
+
+[Serializable]
+class SomeSerializedClass
+{
+
 }

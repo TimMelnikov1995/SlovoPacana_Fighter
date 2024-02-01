@@ -1,7 +1,11 @@
+using System;
 using UnityEngine;
 
+[Serializable]
 public class CS_Attacking : CFSM_BaseState
 {
+    //[SerializeField] float strength;
+
     public CS_Attacking(Character_FSM state_machine) : base(state_machine)
     {
         _transitions = new Transition[]
